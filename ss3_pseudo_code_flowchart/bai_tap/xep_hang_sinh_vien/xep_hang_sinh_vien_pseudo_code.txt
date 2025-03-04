@@ -1,0 +1,14 @@
+Begin
+	Input diem
+	If(diem >= 75) then
+		Display loai A
+	ElseIf(diem >= 60) then
+		Display loai B
+	ElseIf(diem >= 45) then
+		Display loai C
+	ElseIf(diem >= 35) then
+		Display loai D
+	Else
+		Display loai E
+	EndIf
+End

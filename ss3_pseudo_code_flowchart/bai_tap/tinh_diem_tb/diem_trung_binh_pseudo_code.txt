@@ -1,0 +1,5 @@
+Begin
+	Input toan li hoa
+	avg = (toan + li + hoa) / 3
+	Display avg
+End
