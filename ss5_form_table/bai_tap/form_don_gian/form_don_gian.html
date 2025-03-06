@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đơn giản</title>
+    <style>
+        .container {
+            background-color: rgb(127, 255, 153);
+            display: flex;
+            justify-content: center;
+            /* Căn giữa theo chiều ngang */
+            align-items: center;
+            /* Căn giữa theo chiều dọc */
+            height: 100vh;
+            /* Chiều cao toàn màn hình */
+        }
+
+        .form {
+            /* display: block; */
+            width: 600px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+
+
+        }
+
+        input {
+            display: flex;
+            /* width: 65vh; */
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+        }
+
+        input[type="submit"],
+        input[type="reset"]{
+            background-color: rgb(35, 105, 255);
+            height: 30px;
+            border-radius: 5px;
+            color: #ededed;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" action="get">
+            <h2 align="center" style="color: white; background-color: red; padding: 5px;">SỞ THÍCH CỦA BẠN</h2>
+            <!-- <div class="lbl">
+                    <label for="name">Họ và tên:</label>
+                    <label for="email">Email:</label>
+                </div>
+    
+                <div class="ipt">
+                    <input type="text" id="name" name="name">
+                    <input type="email" id="email" name="email">
+                </div> -->
+
+            <div style="width: 100%; display:flex;">
+                <label style="width: 30%; text-align: right;" for="name">Họ và tên: &ensp;</label>
+                <input style="width: 70%;" type="text" id="name" name="name">
+            </div>
+            <br>
+            <div style="width: 100%; display:flex;">
+                <label style="width: 30%; text-align: right;" for="email">Email: &ensp;</label>
+                <input style="width: 70%;" type="email" id="email" name="email">
+            </div>
+            <br>
+            <div style="width: 100%; display:flex;">
+                <label style="width: 30%; text-align: right;">Sở thích: &ensp;</label>
+                <div style="width: 70%; display: flex; flex-wrap: wrap;">
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Thể thao</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Âm nhạc</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Đọc sách</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Lướt web</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Chơi game</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Điện ảnh</span>
+                    </div>
+                    <div style="display: flex; width: 33%;">
+                        <input type="checkbox" name="fav" id=""><span>Du lịch</span>
+                    </div>
+                </div>
+            </div>
+            <br>    
+            <div style="display: flex;">
+                <input style="width: 50%;" type="submit" value="Gửi thông tin">
+                <input style="width: 50%;" type="reset" value="Nhập lại">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

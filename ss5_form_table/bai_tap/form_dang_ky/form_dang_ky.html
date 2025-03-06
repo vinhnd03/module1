@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Ký</title>
+    <style>
+        .container {
+            background-color: #b9bbef;
+            display: flex;
+            justify-content: center;
+            /* Căn giữa theo chiều ngang */
+            align-items: center;
+            /* Căn giữa theo chiều dọc */
+            height: 100vh;
+            /* Chiều cao toàn màn hình */
+        }
+
+        .form-login {
+            /* display: block; */
+            width: 300px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+
+        }
+
+        input {
+            display: flex;
+        }
+
+        input[type="text"], input[type="email"]{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form-login" action="get" method="http://demo.codegym.vn/6/registration_form/register.php">
+            <h2>Mô tả</h2>
+            <label for="name">Họ và tên:</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="sdt">Số điện thoại:</label>
+            <input type="text" id="sdt" name="sdt"><br>
+            <label>Giới tính:</label>
+            <input style="display: inline-flex;" type="radio" name="gender" value="nam"> <span>Nam</span>
+            <input style="display: inline-flex;" type="radio" name="gender" value="nu"> <span>Nữ</span>
+
+            <input style="margin-top: 10px; width: 59px;" type="submit" value="Đăng k">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Khảo Sát</title>
+    <style>
+        .container {
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            /* Căn giữa theo chiều ngang */
+            align-items: center;
+            /* Căn giữa theo chiều dọc */
+            /* height: 70vh; */
+            /* Chiều cao toàn màn hình */
+        }
+
+        .form-login {
+            /* display: block; */
+            width: 500px;
+            padding: 0 60px 60px 60px;
+            background: #ededed;
+            border-radius: 8px;
+
+        }
+
+        input {
+            display: flex;
+            /* width: 65vh; */
+        }
+
+        select {
+            display: block;
+            width: 250px;
+        }
+
+        td {
+            text-align: center;
+            /* Căn giữa theo chiều ngang */
+            vertical-align: middle;
+            /* Căn giữa theo chiều dọc */
+        }
+
+        td input[type="radio"] {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form-login" action="get" method="http://demo.codegym.vn/6/registration_form/register.php">
+            <h1>Khảo sát sản phẩm</h1>
+            <p>Xin hãy dành ra ít thời gian để hoàn thành bản khảo sát này</p>
+            <label for="ageRange">Độ tuổi của bạn là:</label>
+            <select name="ageRange" id="ageRange">
+                <option value="1">0 - 10</option>
+                <option value="2">11 - 17</option>
+                <option value="3">18 - 24</option>
+                <option value="4">25 - 35</option>
+                <option value="5">36 - 50</option>
+                <option value="6">50+</option>
+            </select><br>
+
+            <label for="income">Thu nhập hằng năm của bạn là:</label>
+            <select name="income" id="income">
+                <option value="1">0 - 1000$</option>
+                <option value="2">1000 - 2000$</option>
+                <option value="3">2000 - 3000$</option>
+                <option value="4">3000 - 4000$</option>
+                <option value="5">4000 - 5000$</option>
+                <option value="6">5000$+</option>
+            </select><br>
+
+            <label>Giới tính:</label><br>
+            <input style="display: inline-flex;" type="radio" name="gender" value="nam"> <span>Nam</span><br>
+            <input style="display: inline-flex;" type="radio" name="gender" value="nu"> <span>Nữ</span><br>
+            <br>
+
+            <label>Những sản phẩm bạn đã mua gần đây:</label><br>
+            <input style="display: inline-flex;" type="checkbox" name="prd" value="sp1"> <span>Sản phẩm 1</span><br>
+            <input style="display: inline-flex;" type="checkbox" name="prd" value="sp2"> <span>Sản phẩm 2</span><br>
+            <input style="display: inline-flex;" type="checkbox" name="prd" value="sp2"> <span>Sản phẩm 3</span><br>
+            <br>
+
+            <label>Bạn thường xuyên mua sắm như thế nào:</label><br>
+            <input style="display: inline-flex;" type="radio" name="regu" value="daily"> <span>Hằng ngày</span><br>
+            <input style="display: inline-flex;" type="radio" name="regu" value="weekly"> <span>Nằng tuần</span><br>
+            <input style="display: inline-flex;" type="radio" name="regu" value="monthly"> <span>Hàng tháng</span><br>
+            <br>
+
+            <label>Bạn muốn trả giá như thế nào cho sản phẩm mới:</label><br>
+            <div style="display: flex; gap: 5px;">
+                <div style="display: flex; ">
+                    <span>$&ensp;</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <input style="width: 70px;" name="dollar" type="number">
+                    <span>Dollars</span>
+                </div>
+                <div style="display: flex; ">
+                    <span>.&ensp;</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <input style="width: 30px;" name="cent" type="number">
+                    <span>Cents</span>
+                </div>
+            </div><br>
+
+            <label>Tính năng bạn mong muốn cho sản phẩm mới:</label><br>
+            <textarea rows="4" style="width: 400px;"></textarea><br><br>
+
+            <label>Đánh giá mức độ đồng ý của bạn:</label><br>
+            <table border="1" style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td></td>
+                    <td>Rất không đồng ý</td>
+                    <td>Không đồng ý</td>
+                    <td>Đồng ý</td>
+                    <td>Rất đồng ý</td>
+                </tr>
+                <tr>
+                    <th>Sản phẩm có giá vừa phải</th>
+                    <td><input type="radio" name="r1"></td>
+                    <td><input type="radio" name="r1"></td>
+                    <td><input type="radio" name="r1"></td>
+                    <td><input type="radio" name="r1"></td>
+                </tr>
+                <tr>
+                    <th>Sản phẩm có chất lượng cao</th>
+                    <td><input type="radio" name="r2"></td>
+                    <td><input type="radio" name="r2"></td>
+                    <td><input type="radio" name="r2"></td>
+                    <td><input type="radio" name="r2"></td>
+                </tr>
+                <tr>
+                    <th>Bạn sẽ giới thiệu SP cho gia đình và bạn bè</th>
+                    <td><input type="radio" name="r3"></td>
+                    <td><input type="radio" name="r3"></td>
+                    <td><input type="radio" name="r3"></td>
+                    <td><input type="radio" name="r3"></td>
+                </tr>
+            </table>
+
+            <input style="margin-top: 10px; width: 59px;" type="submit" value="Gửi">
+        </form>
+    </div>
+</body>
+
+</html>
