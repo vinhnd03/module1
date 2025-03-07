@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện javascript</title>
+</head>
+<body>
+    <h2>Sự kiện javascript cơ bản</h2>
+    <input type="text" id="input" oninput="inputText()" ><br><br>
+    
+    <input type="text" disabled id="showItem" onmouseover="mouseOver()" onmouseout="mouseOut()">
+
+    <script>
+        function inputText(){
+            var text = document.getElementById('input').value;
+            console.log(text);
+            var showItem = document.getElementById("showItem");
+
+            if(isHover){
+                showItem.value = text;
+            }else{
+                showItem.value = "";
+            }
+            
+        }
+
+        function mouseOver(){
+            var text = document.getElementById('input').value;
+            ;
+            var showItem = document.getElementById("showItem");
+            showItem.style.backgroundColor = "red";
+            showItem.style.color = "black"
+            showItem.value = text;
+        }
+
+        function mouseOut(){
+            var showItem = document.getElementById("showItem");
+            
+            showItem.style.backgroundColor = "white";
+
+            showItem.value = "";
+        }
+
+        var isHover = false;
+        document.getElementById("showItem").addEventListener("mouseenter", function(){
+            isHover = true;
+            console.log(isHover);
+        })
+
+        document.getElementById("showItem").addEventListener("mouseleave", function(){
+            isHover = false;
+            console.log(isHover);
+        })
+        
+    </script>
+</body>
+</html>

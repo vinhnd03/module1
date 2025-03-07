@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình Chữ Nhật</title>
+
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+
+        }
+
+         
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form">
+            <h1 align="center">Hình chữ nhật</h1>
+            <table style="width: 100%;">
+                <tr>
+                    <td><label for="chieudai">Nhập chiều dài:</label></td>
+                    <td><input type="number" min="0" name="chieudai" id="chieudai" oninput="tinh()"></td>
+                </tr>
+                <td>
+                    <label for="chieurong">Nhập chiều rộng:</label>
+                </td>
+                <td><input type="number" min="0" name="chieurong" id="chieurong" oninput="tinh()"></td>
+                <tr>
+                    <td><label>Chu vi hình chữ nhật: </label></td>
+                    <td><input id="showCV" value="0" disabled></td>
+                </tr>
+                <tr>
+                    <td><label>Diện tích hình chữ nhật: </label></td>
+                    <td><input id="showDT" value="0" disabled></td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+
+
+    <script>
+        let dientich = 0;
+        let chuvi = 0;
+        let chieudai = document.getElementById("chieudai").value;
+        let chieurong = document.getElementById("chieurong").value;
+
+        let showCV = document.getElementById("showCV");
+        let showDT = document.getElementById("showDT");
+
+        function tinh() {
+            let chieudai = +document.getElementById("chieudai").value;
+            let chieurong = +document.getElementById("chieurong").value;
+
+            if (chieudai > 0 && chieurong > 0) {
+
+                chuvi = (chieudai + chieurong) * 2;
+                showCV.value = chuvi;
+                dientich = chieudai * chieurong;
+                showDT.value = dientich;
+            } else {
+                showCV.value = 0;
+                showDT.value = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
