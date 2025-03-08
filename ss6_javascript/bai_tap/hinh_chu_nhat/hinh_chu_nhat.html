@@ -22,63 +22,66 @@
             padding: 60px;
             background: #ededed;
             border-radius: 8px;
-
         }
 
-         
+        input {
+            height: 30px;
+            font-size: 25px;
+        }
+
+        label {
+            font-size: 20px;
+        }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <div class="form">
             <h1 align="center">Hình chữ nhật</h1>
             <table style="width: 100%;">
                 <tr>
-                    <td><label for="chieudai">Nhập chiều dài:</label></td>
-                    <td><input type="number" min="0" name="chieudai" id="chieudai" oninput="tinh()"></td>
+                    <td><label for="chieuDai">Nhập chiều dài:</label></td>
+                    <td><input type="number" min="0" name="chieuDai" id="chieuDai" oninput="tinh()"></td>
                 </tr>
                 <td>
-                    <label for="chieurong">Nhập chiều rộng:</label>
+                    <label for="chieuRong">Nhập chiều rộng:</label>
                 </td>
-                <td><input type="number" min="0" name="chieurong" id="chieurong" oninput="tinh()"></td>
+                <td><input type="number" min="0" name="chieuRong" id="chieuRong" oninput="tinh()"></td>
                 <tr>
                     <td><label>Chu vi hình chữ nhật: </label></td>
-                    <td><input id="showCV" value="0" disabled></td>
+                    <td><input style="color: blue;" id="hienThiChuVi" value="0" disabled></td>
                 </tr>
                 <tr>
                     <td><label>Diện tích hình chữ nhật: </label></td>
-                    <td><input id="showDT" value="0" disabled></td>
+                    <td><input style="color: red;" id="hienThiDienTich" value="0" disabled></td>
                 </tr>
             </table>
-            
         </div>
     </div>
 
-
     <script>
-        let dientich = 0;
-        let chuvi = 0;
-        let chieudai = document.getElementById("chieudai").value;
-        let chieurong = document.getElementById("chieurong").value;
+        let dienTich = 0;
+        let chuVi = 0;
+        let chieuDai = document.getElementById("chieuDai").value;
+        let chieuRong = document.getElementById("chieuRong").value;
 
-        let showCV = document.getElementById("showCV");
-        let showDT = document.getElementById("showDT");
+        let hienThiChuVi = document.getElementById("hienThiChuVi");
+        let hienThiDienTich = document.getElementById("hienThiDienTich");
 
         function tinh() {
-            let chieudai = +document.getElementById("chieudai").value;
-            let chieurong = +document.getElementById("chieurong").value;
+            let chieuDai = +document.getElementById("chieuDai").value;
+            let chieuRong = +document.getElementById("chieuRong").value;
 
-            if (chieudai > 0 && chieurong > 0) {
+            if (chieuDai > 0 && chieuRong > 0) {
 
-                chuvi = (chieudai + chieurong) * 2;
-                showCV.value = chuvi;
-                dientich = chieudai * chieurong;
-                showDT.value = dientich;
+                chuVi = (chieuDai + chieuRong) * 2;
+                hienThiChuVi.value = chuVi;
+                dienTich = chieuDai * chieuRong;
+                hienThiDienTich.value = dienTich;
             } else {
-                showCV.value = 0;
-                showDT.value = 0;
+                hienThiChuVi.value = 0;
+                hienThiDienTich.value = 0;
             }
         }
     </script>
