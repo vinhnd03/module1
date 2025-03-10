@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng máy tính</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 400px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+
+        button,
+        input[type="button"] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+
+                    <td colspan="4"><input disabled type="text" name="" id="manHinh" value=""
+                            style="width: 98%; text-align: right;"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="2" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="3" onclick="layGiaTri(this.value)"></td>
+                    <td><button class="toanTu" type="button" value="cong" onclick="layGiaTri(this.value)">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="5" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="6" onclick="layGiaTri(this.value)"></td>
+                    <td><button class="toanTu" type="button" value="tru" onclick="layGiaTri(this.value)">-</button></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="8" onclick="layGiaTri(this.value)"></td>
+                    <td><input type="button" value="9" onclick="layGiaTri(this.value)"></td>
+                    <td><button class="toanTu" type="button" value="nhan" onclick="layGiaTri(this.value)">*</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="button" value="del" onclick="xoa()">del</button></td>
+                    <td><input type="button" value="0" onclick="layGiaTri(this.value)"></td>
+                    <td><button type="button" value="tinh" id="tinh" onclick="tinh()">=</button></td>
+                    <td><button class="toanTu" type="button" value="chia" onclick="layGiaTri(this.value)">/</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" value="phay">.</button></td>
+                    <td><button type="button" value="soAm">(-)</button></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        let manHinh = document.getElementById("manHinh");
+        anNut(true);
+        function layGiaTri(giaTri) {
+            if (giaTri == "cong") {
+                manHinh.value += "+";
+                anNut(true);
+            } else if (giaTri == "tru") {
+                manHinh.value += "-";
+                anNut(true);
+            } else if (giaTri == "nhan") {
+                manHinh.value += "*";
+                anNut(true);
+            } else if (giaTri == "chia") {
+                manHinh.value += "/";
+                anNut(true);
+            }
+            else {
+                anNut(false);
+                manHinh.value += giaTri;
+            }
+        }
+
+        function tinh() {
+            let ketQua = eval(manHinh.value);
+            if (typeof ketQua != "number") {
+                manHinh.value + "lỗi";
+            } else {
+                manHinh.value = ketQua;
+            }
+
+        }
+
+        function xoa() {
+            manHinh.value = "";
+        }
+
+        function anNut(giaTri) {
+            let toanTu = document.getElementsByClassName("toanTu");
+            let kiemTra = parseFloat(document.getElementById("manHinh").value);
+            if(typeof kiemTra != "number"){
+                manHinh.value = "lỗi";
+            }
+
+            if (giaTri) {
+                for (let i = 0; i < toanTu.length; i++) {
+                    toanTu[i].disabled = true;
+                }
+            } else {
+                for (let i = 0; i < toanTu.length; i++) {
+                    toanTu[i].disabled = false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

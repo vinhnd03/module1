@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+
+        /* input {
+            height: 30px;
+            font-size: 25px;
+        } */
+
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <select name="chon1" id="chon1" onchange="chonTien()">
+                            <option value="usd">USD</option>
+                            <option value="vnd">VND</option>
+                            
+                        </select>
+                    </td>
+                    <td>
+                        <select name="chon2" id="chon2">                            
+                            <option value="vnd">VND</option>
+                            <option value="usd">USD</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input id="soTien1" type="number" oninput="chuyenDoi()"></td>
+                    <td><input id="soTien2" type="number" disabled></td>
+
+                    <td>
+                        <button type="button" onclick="chuyenDoi()">Chuyển đổi</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function chuyenDoi() {
+            let chuyenTu = document.getElementById("chon1").value;
+            let chuyenThanh = document.getElementById("chon2").value;
+            let input1 = +document.getElementById("soTien1").value;
+            let input2 = +document.getElementById("soTien2").value;
+            let ketQua;
+
+            if (chuyenTu == "usd" && chuyenThanh == "vnd") {
+                ketQua = input1 * 25536.26;
+                document.getElementById("soTien2").value = ketQua;
+            }else if(chuyenTu == "vnd" && chuyenThanh == "usd"){
+                ketQua = input1 * 0.000039;
+                document.getElementById("soTien2").value = ketQua;
+            }
+            // alert(chon1)
+        }
+
+        function chonTien() {
+            let chuyenTu = document.getElementById("chon1").value;
+            let chuyenThanh = document.getElementById("chon2").value;
+            if (chuyenTu == "usd") {
+                document.getElementById("chon2").value = "vnd";
+            }else if (chuyenTu == "vnd"){
+                document.getElementById("chon2").value = "usd";
+            }
+            chuyenDoi();
+        }
+
+    </script>
+</body>
+
+</html>
