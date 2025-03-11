@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <input style="width: 100%;" type="number" id="thang" placeholder="nhập tháng" oninput="thongBaoNgay()">
+            <h2 id="thongBao"></h2>
+        </div>
+    </div>
+    <script>
+        function thongBaoNgay(){
+            let thang = +document.getElementById("thang").value;
+            switch (thang) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    document.getElementById("thongBao").innerHTML = `Tháng ${thang} có 31 ngày`;
+                    break;
+            
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    document.getElementById("thongBao").innerHTML = `Tháng ${thang} có 30 ngày`;
+                    break;
+                case 2:
+                document.getElementById("thongBao").innerHTML = `Tháng ${thang} có 28 hoặc 29 ngày`;
+                break;
+                default:
+                    document.getElementById("thongBao").innerHTML = `Không phải tháng trong năm`;
+                    
+            }
+        }
+    </script>
+</body>
+</html>

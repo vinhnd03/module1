@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Nhập điểm kiểm tra</th>
+                    <td><input type="number" id="diemKiemTra" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Nhập thi giữa kỳ</th>
+                    <td><input type="number" id="diemGiuaKy" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Nhập thi cuối kỳ</th>
+                    <td><input type="number" id="diemCuoiKy" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <span id="thongBao"></span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function guiThongBao() {
+            let diemKiemTra = +document.getElementById("diemKiemTra").value;
+            let diemGiuaKy = +document.getElementById("diemGiuaKy").value;
+            let diemCuoiKy = + document.getElementById("diemCuoiKy").value;
+
+            let daNhap = diemKiemTra != "" && diemGiuaKy != "" && diemCuoiKy != "";
+
+            if (daNhap) {
+                let diemTrungBinh = (diemKiemTra + diemGiuaKy + diemCuoiKy) / 3;
+                if(diemTrungBinh >= 8) {
+                    document.getElementById("thongBao").innerText = `Học sinh có ${diemTrungBinh.toFixed(2)} điểm và đạt được học lực giỏi`
+                }else if(diemTrungBinh >= 6.5){
+                    document.getElementById("thongBao").innerText = `Học sinh có ${diemTrungBinh.toFixed(2)} điểm và đạt được học lực khá`
+                }else if(diemTrungBinh >= 5){
+                    document.getElementById("thongBao").innerText = `Học sinh có ${diemTrungBinh.toFixed(2)} điểm và đạt được học lực trung bình`
+                }else if(diemTrungBinh >= 3){
+                    document.getElementById("thongBao").innerText = `Học sinh có ${diemTrungBinh.toFixed(2)} điểm và đạt được học lực yếu`
+                }else{
+                     document.getElementById("thongBao").innerText = `Học sinh có ${diemTrungBinh.toFixed(2)} điểm và đạt được học lực kém`
+                }
+            } else {
+                document.getElementById("thongBao").innerText = ""
+            }
+        }
+    </script>
+</body>
+
+</html>

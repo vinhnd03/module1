@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Nhập số nguyên</th>
+                    <td><input type="text" id="soNguyen" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <span id="thongBao"></span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function guiThongBao() {
+            let soNguyen = +document.getElementById("soNguyen").value;
+                if(soNguyen == 0){
+                    document.getElementById("thongBao").innerHTML = "Số nguyên bằng 0";
+                }else if(soNguyen > 0){
+                    document.getElementById("thongBao").innerHTML = "Số nguyên lớn hơn 0";
+                }else{
+                    document.getElementById("thongBao").innerHTML = "Số nguyên bé hơn 0";
+                }
+        }
+    </script>
+</body>
+
+</html>

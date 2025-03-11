@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số cân nặng của cơ thể</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+
+        /* input{
+            width: 98%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Cân nặng(kg)</th>
+                    <td><input type="text" id="canNang" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Chiều cao(m)</th>
+                    <td><input type="text" id="chieuCao" oninput="tinh()"></td>
+                </tr>
+                <tr><th colspan="2"><span id="thongBao"></span></th></tr>
+            </table>
+            
+        </div>
+    </div>
+    <script>
+        function tinh() {
+            let canNang = +document.getElementById("canNang").value;
+            let chieuCao = +document.getElementById("chieuCao").value;
+            if (canNang && chieuCao) {
+
+                let bmi = canNang / (chieuCao ** 2)
+                if (bmi < 18.5) {
+                    document.getElementById("thongBao").innerHTML = "Underweight";
+                } else if (bmi < 25.0) {
+                    document.getElementById("thongBao").innerHTML = "Normal";
+                } else if (bmi < 30.0) {
+                    document.getElementById("thongBao").innerHTML = "Overweight";
+                } else {
+                    document.getElementById("thongBao").innerHTML = "Obese";
+                }
+
+            }else{
+
+            }
+        }
+    </script>
+</body>
+
+</html>

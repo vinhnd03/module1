@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Nhập doanh số bán hàng(triệu)</th>
+                    <td><input type="number" id="doanhSo" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <span id="thongBao"></span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function guiThongBao() {
+            let doanhSo = +document.getElementById("doanhSo").value;
+            let hoaHong;
+            let daNhap = doanhSo != "";
+            if (daNhap) {
+                if (doanhSo >= 100) {
+                    hoaHong = 20;
+                    document.getElementById("thongBao").innerText = `Hoa hồng nhận được là ${(doanhSo * hoaHong / 100)} triệu`;
+                } else if (doanhSo >= 50) {
+                    hoaHong = 15;
+                    document.getElementById("thongBao").innerText = `Hoa hồng nhận được là ${(doanhSo * hoaHong / 100)} triệu`;
+                } else if (doanhSo >= 10) {
+                    hoaHong = 10;
+                    document.getElementById("thongBao").innerText = `Hoa hồng nhận được là ${(doanhSo * hoaHong / 100)} triệu`;
+                } else{
+                    hoaHong = 5;
+                    document.getElementById("thongBao").innerText = `Hoa hồng nhận được là ${(doanhSo * hoaHong / 100)} triệu`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

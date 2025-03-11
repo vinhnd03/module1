@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Số phút đã gọi: </th>
+                    <td><input type="number" id="phut" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" id="thongBao"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        /*
+         thông số:
+         số cước bắt buộc: 50000
+         600 đồng mỗi 50 phút gọi đầu tiên
+         400 đồng mỗi 150 phút gọi tiếp theo
+         200 đồng mỗi phút sau 200 phút gọi đầu
+         */
+         document.getElementById("thongBao").innerText = "Phí cước phải trả là 50000 VND";
+        function guiThongBao() {
+            let phut = +document.getElementById("phut").value;
+            let phiCuoc;
+            if (!isNaN(phut)) {
+                if (phut <= 50) {
+                    phiCuoc = 50000 + (phut * 600);
+                } else if (phut <= 200) {
+                    phiCuoc = 50000 + ((600 * 50) + (400 * (phut - 50)));
+                } else {
+                    phiCuoc = 50000 + ((600 * 50) + (400 * 150) + (200 * (phut - 50 - 150)));
+                }
+                document.getElementById("thongBao").innerText = "Phí cước phải trả là " + phiCuoc + "VND";
+            }
+        }
+    </script>
+</body>
+
+</html>

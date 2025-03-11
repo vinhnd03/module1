@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Nhập tuổi</th>
+                    <td><input type="number" id="tuoi" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <span id="thongBao"></span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function guiThongBao() {
+            let tuoi = +document.getElementById("tuoi").value;
+            if (tuoi) {
+                if(tuoi >= 15){
+                    document.getElementById("thongBao").innerHTML = "Đủ tuổi học lớp 10";
+                }else{
+                    document.getElementById("thongBao").innerHTML = "Không đủ tuổi học lớp 10";
+                }
+            }else{
+                document.getElementById("thongBao").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Nhập a</th>
+                    <td><input type="number" id="a" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Nhập b</th>
+                    <td><input type="number" id="b" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Nhập c</th>
+                    <td><input type="number" id="c" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <span id="thongBao"></span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function guiThongBao() {
+            let a = +document.getElementById("a").value;
+            let b = +document.getElementById("b").value;
+            let c = + document.getElementById("c").value;
+
+            let daNhap = a != "" && b != "" && c != "";
+
+            if (daNhap) {
+                if (a > b && a > c) {
+                    document.getElementById("thongBao").innerText = "a là số lớn nhất"
+                } else {
+                    if (b > c) {
+                        document.getElementById("thongBao").innerText = "b là số lớn nhất"
+                    } else {
+                        document.getElementById("thongBao").innerText = "c là số lớn nhất"
+                    }
+                }
+            } else {
+                document.getElementById("thongBao").innerText = ""
+            }
+        }
+    </script>
+</body>
+
+</html>

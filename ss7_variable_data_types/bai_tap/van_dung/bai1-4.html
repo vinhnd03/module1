@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biến, kiểu dữ liệu và toán tử</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 400px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+
+        /* button,
+        input[type="button"] {
+            width: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Vật lí</th>
+                    <td><input type="number" id="vatLy" min="0" max="10" oninput="tinhDiem()"></td>
+                </tr>
+                <tr>
+                    <th>Hóa học</th>
+                    <td><input type="number" id="hoaHoc" min="0" max="10" oninput="tinhDiem()"></td>
+                </tr>
+                <tr>
+                    <th>Sinh học</th>
+                    <td><input type="number" id="sinhHoc" min="0" max="10" oninput="tinhDiem()"></td>
+                </tr>
+                <tr>
+                    <th>Điểm trung bình: </th>
+                    <td><input type="number" id="diemTrungBinh" disabled></td>
+                </tr>
+                <tr>
+                    <th>Điểm tổng: </th>
+                    <td><input type="number" id="diemTong" disabled></td>
+                </tr>
+            </table>
+            <hr>
+            <table style="width: 100%;">
+                <tr>
+                    <th>Độ C (&deg;C)</th>
+                    <td><input type="number" id="doC" oninput="tinhDo()"></td>
+                </tr>
+                <tr>
+                    <th>Độ F (&deg;F)</th>
+                    <td><input type="number" id="doF" disabled></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function tinhDiem() {
+            let vatLy = +document.getElementById("vatLy").value;
+            let hoaHoc = +document.getElementById("hoaHoc").value;
+            let sinhHoc = +document.getElementById("sinhHoc").value;
+
+            if (vatLy && hoaHoc && sinhHoc) {
+                document.getElementById("diemTrungBinh").value = (vatLy + hoaHoc + sinhHoc) / 3;
+
+                document.getElementById("diemTong").value = vatLy + hoaHoc + sinhHoc;
+            } else {
+                document.getElementById("diemTrungBinh").value = 0;
+
+                document.getElementById("diemTong").value = 0;
+            }
+        }
+
+       
+    </script>
+</body>
+
+</html>

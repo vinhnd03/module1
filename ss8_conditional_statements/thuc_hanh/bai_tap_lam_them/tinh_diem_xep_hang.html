@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm xếp hạng</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 400px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+
+        /* input{
+            width: 98%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <td>Số trận đã chơi: </td>
+                    <td><input type="number" id="soTranChoi" oninput="xepHangNguoiChoi()"></td>
+                </tr>
+                <tr>
+                    <td>Số trận đã thắng: </td>
+                    <td><input type="number" id="soTranThang" oninput="xepHangNguoiChoi()"></td>
+                </tr>
+            </table>
+            <hr>
+            <table style="width: 100%;">
+                <tr>
+                    <td>Tổng điểm: </td>
+                    <td><input disabled type="number" id="soDiem"></td>
+                </tr>
+                <tr>
+                    <td>Tỉ lệ thắng: </td>
+                    <td><input disabled type="number" id="tiLeThang"></td>
+                </tr>
+                <tr>
+                    <td>Xếp hạng: </td>
+                    <td><input disabled type="text" id="xepHang"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        /*
+            Quy định:
+            Mỗi trận thắng: 200 điểm.
+            "Tân binh" nếu matchesPlayed < 5.
+            "Đồng" nếu mainScore < 1000 hoặc winRate < 50%.
+            "Bạc" nếu mainScore >= 1000 và mainScore < 5000 và winRate >= 50%.
+            "Vàng" nếu mainScore >= 5000 và mainScore < 10000 và winRate >= 60%.
+            "Kim cương" nếu mainScore >= 10000 và winRate >= 70%.
+        */
+        function xepHangNguoiChoi() {
+            let soTranChoi = +document.getElementById("soTranChoi").value;
+            let soTranThang = +document.getElementById("soTranThang").value;
+
+            let daNhap = !isNaN(soTranChoi) && !isNaN(soTranThang);
+            let tiLeThang = (soTranThang / soTranChoi) * 100;
+            let soDiem = soTranThang * 200;
+            let xepHang;
+
+            if (daNhap) {
+                if (soTranChoi > 5) {
+                    if (soDiem > 1000 && tiLeThang >= 50) {
+                        if (soDiem >= 10000) {
+                            if (tiLeThang >= 70) {
+                                xepHang = "Kim cương";
+                            } else {
+                                xepHang = "Vàng";
+                            }
+                        } else if (soDiem >= 5000) {
+                            if (tiLeThang >= 60) {
+                                xepHang = "Vàng";
+                            } else {
+                                xepHang = "Bạc";
+                            }
+                        } else if (soDiem >= 1000) {
+                            if (tiLeThang >= 50) {
+                                xepHang = "Bạc";
+                            } else {
+                                xepHang = "Đồng";
+                            }
+                        }
+                    } else {
+                        xepHang = "Đồng";
+                    }
+                } else {
+                    xepHang = "Tân binh"
+                }
+            }
+            document.getElementById("soDiem").value = soDiem;
+            document.getElementById("tiLeThang").value = tiLeThang.toFixed(2);
+            document.getElementById("xepHang").value = xepHang;
+        }
+    </script>
+</body>
+
+</html>

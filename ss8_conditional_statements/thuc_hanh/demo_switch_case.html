@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Switch-Case</title>
+</head>
+
+<body>
+    <script>
+        let browser = prompt("Enter your browser name!");
+
+
+        //IF - ELSE
+
+        // if (browser == "Edge") {
+        //     alert("You've got the Edge!");
+        // } else if (browser == "Chrome" || browser == "Firefox" || browser == "Safari" || browser == "Opera") {
+        //     alert("Guess you don't need need Edge anymore")
+        // } else {
+        //     alert("We don't know what is that");
+        // }
+
+
+        //SWITCH - CASE
+
+        switch (browser) {
+            case "Edge":
+                alert("You've got the Edge!");
+                break;
+            case "Chrome":
+            case "Firefox":
+            case "Safari":
+            case "Opera":
+                alert("Guess you don't need need Edge anymore");
+            default:
+            alert("We don't know what is that");
+        }
+    </script>
+</body>
+
+</html>

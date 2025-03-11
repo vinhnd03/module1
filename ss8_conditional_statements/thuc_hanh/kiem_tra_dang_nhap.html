@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra đăng nhập</title>
+</head>
+
+<body>
+    <script>
+        let username = prompt("Enter Username: ");
+        if (username == "admin") {
+            let password = prompt("Enter Passwword: ");
+            if (password == "vinhnd") {
+                alert("WELCOME");
+            } else {
+                alert("Who are you?");
+            }
+        } else if (username == "") {
+            alert("Canceled")
+            alert(username)
+        } else {
+            alert("I don't know you");
+        }
+    </script>
+</body>
+
+</html>
