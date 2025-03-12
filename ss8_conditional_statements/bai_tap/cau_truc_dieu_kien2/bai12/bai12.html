@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 11</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <h1>Tính lãi ngân hàng:</h1>
+                <tr>
+                    <th>Số tiền gửi </th>
+                    <td><input type="number" id="soTien" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Lãi xuất</th>
+                    <td><input type="number" id="lai" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th>Số tháng gửi </th>
+                    <td><input type="number" id="soThang" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" id="thongBao"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+
+        function guiThongBao() {
+            let soTien = +document.getElementById("soTien").value;
+            let lai = +document.getElementById("lai").value;
+            let soThang = +document.getElementById("soThang").value;
+            let tienLai;
+            if (!isNaN(soTien) && !isNaN(lai && !isNaN(soThang))) {
+                tienLai = soTien * (1 + lai/100) ** soThang;
+                document.getElementById("thongBao").innerText = "Số tiền nhận được: " + tienLai.toFixed(3) + "VND";
+            }
+        }
+    </script>
+</body>
+
+</html>

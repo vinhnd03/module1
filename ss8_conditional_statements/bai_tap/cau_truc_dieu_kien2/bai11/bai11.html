@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 11</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Thu nhập cá nhân (triệu VND): </th>
+                    <td><input type="number" id="thuNhap" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" id="thongBao"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        /*
+         thông số thuế
+        thu nhập <= 5 triệu: 5%
+        thu nhập <= 10 triệu: 10%
+        thu nhập <= 18 triệu: 15%
+        thu nhập <= 32 triệu: 20%
+        thu nhập > 32 triệu: 25%
+         */
+
+        function guiThongBao() {
+            let thuNhap = +document.getElementById("thuNhap").value;
+            let thue;
+            if (!isNaN(thuNhap)) {
+                if (thuNhap <= 5) {
+                    thue = thuNhap * 5 / 100;
+                } else if (thuNhap <= 10) {
+                    thue = thuNhap * 10 / 100
+                } else if (thuNhap <= 18) {
+                    thue = thuNhap * 15 / 100
+                } else if (thuNhap <= 32) {
+                    thue = thuNhap * 20 / 100
+                } else {
+                    thue = thuNhap * 25 / 100
+                }
+                document.getElementById("thongBao").innerText = "Số tiền phải trả là " + thue + "triệu VND";
+            }
+        }
+    </script>
+</body>
+
+</html>

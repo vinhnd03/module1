@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện bàn phím</title>
+</head>
+
+<body onload="doReady()">
+    <img style="position: absolute; left: 0; top:0" id="myImage" width="100"
+        src="https://www.arborsci.com/cdn/shop/products/3-4SteelBall1500x1000.jpg?v=1617118626" alt="">
+    <script>
+        function upArrowPress() {
+            var element = document.getElementById("myImage");
+            element.style.top = parseInt(element.style.top) - 5 + "px";
+        }
+
+        function downArrowPress() {
+            var element = document.getElementById("myImage");
+            element.style.top = parseInt(element.style.top) + 5 + "px";
+        }
+
+        function leftArrowPress() {
+            var element = document.getElementById("myImage");
+            element.style.left = parseInt(element.style.left) - 5 + "px";
+        }
+
+        function rightArrowPress() {
+            var element = document.getElementById("myImage");
+            element.style.left = parseInt(element.style.left) + 5 + "px";
+        }
+
+        function moveSelection() {
+            switch (event.code) {
+                case "ArrowLeft":
+                    leftArrowPress();
+                    break;
+                case "ArrowRight":
+                    rightArrowPress();
+                    break;
+                case "ArrowUp":
+                    upArrowPress();
+                    break;
+                case "ArrowDown":
+                    downArrowPress();
+            }
+        }
+        function doReady(){
+            window.addEventListener("keydown", moveSelection);
+        }
+        document.addEventListener("keydown", function (event) {
+            console.log("Bạn đã nhấn: " + event.key);
+            console.log("Mã phím (code): " + event.code);
+        });
+    </script>
+</body>
+
+</html>

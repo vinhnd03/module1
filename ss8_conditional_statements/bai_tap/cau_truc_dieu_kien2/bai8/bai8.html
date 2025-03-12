@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 1</title>
+    <title>Bài 8</title>
     <style>
         .container {
             /* width: 100%; */
@@ -22,38 +22,40 @@
             background: #ededed;
             border-radius: 8px;
         }
-
-        /* input{
-            width: 98%;
-        } */
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="form">
+            <h2 align="center">Kiểm tra tuổi</h2>
+            <hr>
             <table style="width: 100%;">
                 <tr>
-                    <th>Độ C (&deg;C)</th>
-                    <td><input type="number" id="doC" oninput="chuyenDoi()"></td>
+                    <th style="width: 50%;">Số tuổi</th>
+                    <td><input type="text" id="tuoi" oninput="tinh()"></td>
                 </tr>
                 <tr>
-                    <th>Độ F (&deg;F)</th>
-                    <td><input type="text" id="doF" disabled></td>
+                    <th>Kiểm tra</th>
+                    <td><input type="text" id="ketQua" disabled></td>
                 </tr>
-                <!-- <tr><th colspan="2"><span id="thongBao"></span></th></tr> -->
             </table>
-            
+
         </div>
     </div>
     <script>
-        function chuyenDoi(){
-            let doC = +document.getElementById("doC").value;
-            
-            if(!isNaN(doC)){
-                document.getElementById("doF").value = (doC * 9/5 + 32);
-            }else{
-                document.getElementById("doF").value = "";
+        function tinh() {
+            let tuoi = +document.getElementById("tuoi").value;
+            let ketQua;
+            if (!isNaN(tuoi)) {
+                if (tuoi <= 0 || tuoi > 120) {
+                    document.getElementById("ketQua").value = "Tuổi phải >= 0 và < 120";
+                } else {
+                    document.getElementById("ketQua").value = "Tuổi lợp lệ";
+                }
+
+            } else {
+                document.getElementById("ketQua").value = "Tuổi không hợp lệ";
             }
         }
     </script>

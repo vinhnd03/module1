@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 10</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Số kWh điện đã dùng: </th>
+                    <td><input type="number" id="dien" oninput="guiThongBao()"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" id="thongBao"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        /*
+         thông số:
+        0 - 50: 1.806 đồng/kWh
+        51 - 100: 1.866 đồng/kWh
+        101 - 200: 2.167 đồng/kWh
+        201 - 300: 2.729 đồng/kWh
+        trên 300: 3.050 đồng/K=kWh
+         */
+
+        function guiThongBao() {
+            let dien = +document.getElementById("dien").value;
+            let tienDien;
+            if (!isNaN(dien)) {
+                if (dien <= 50) {
+                    tienDien = dien * 1806;
+                } else if (dien <= 100) {
+                    tienDien = (50 * 1806) + (dien * 1866);
+                } else if (dien <= 200){
+                    tienDien = (50 * 1806) + (50 * 1866) + (dien * 2167);
+                }else if(dien <= 300){
+                    tienDien =  (50 * 1806) + (50 * 1866) + (100 * 2167) + (dien * 2729);
+                }else {
+                    tienDien =  (50 * 1806) + (50 * 1866) + (100 * 2167) + (100 * 2729) + (dien * 3050)
+                }
+                document.getElementById("thongBao").innerText = "Số tiền phải trả là " + tienDien + "VND";
+            }
+        }
+    </script>
+</body>
+
+</html>

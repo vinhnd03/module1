@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h2 align="center">Phương trình bậc 2</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 50%;">Số a</th>
+                    <td><input type="number" id="soA" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Số b</th>
+                    <td><input type="number" id="soB" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Số c</th>
+                    <td><input type="number" id="soC" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>x</th>
+                    <td><input type="text" id="ketQua" disabled></td>
+                </tr>
+                <!-- <tr><th colspan="2"><span id="thongBao"></span></th></tr> -->
+            </table>
+
+        </div>
+    </div>
+    <script>
+        function tinh() {
+            let a = +document.getElementById("soA").value;
+            let b = +document.getElementById("soB").value;
+            let c = +document.getElementById("soC").value;
+            let ketQua;
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                if (a == 0) {
+                    //pt bac 1
+                    if (b == 0) {
+                        ketQua = (c == 0) ? "pt vô số nghiệm" : "pt vô nghiệm";
+                    } else {
+                        ketQua = -c / b;
+                    }
+                } else {
+                    let delta = b ** 2 - 4 * a * c;
+                    if (delta > 0) {
+                        let x1 = (-b + Math.sqrt(delta)) / 2 * a;
+                        let x2 = (-b - Math.sqrt(delta)) / 2 * a;
+                        ketQua = `x1 = ${x1} và x2 = ${x2}`
+                    } else if (delta == 0) {
+                        ketQua = -b / 2 * a;
+                    } else if(delta < 0) {
+                        ketQua = "PT vô nghiệm";
+                    }
+                }
+
+                document.getElementById("ketQua").value = ketQua;
+            } else {
+                document.getElementById("ketQua").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 1</title>
+    <title>Bài 4</title>
     <style>
         .container {
             /* width: 100%; */
@@ -22,10 +22,6 @@
             background: #ededed;
             border-radius: 8px;
         }
-
-        /* input{
-            width: 98%;
-        } */
     </style>
 </head>
 
@@ -34,12 +30,16 @@
         <div class="form">
             <table style="width: 100%;">
                 <tr>
-                    <th>Độ C (&deg;C)</th>
-                    <td><input type="number" id="doC" oninput="chuyenDoi()"></td>
+                    <th >Cạnh a</th>
+                    <td><input type="number" id="canhA" oninput="tinh()"></td>
                 </tr>
                 <tr>
-                    <th>Độ F (&deg;F)</th>
-                    <td><input type="text" id="doF" disabled></td>
+                    <th >Cạnh b</th>
+                    <td><input type="number" id="canhB" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Diện tích chữ nhật</th>
+                    <td><input type="text" id="dienTich" disabled></td>
                 </tr>
                 <!-- <tr><th colspan="2"><span id="thongBao"></span></th></tr> -->
             </table>
@@ -47,13 +47,13 @@
         </div>
     </div>
     <script>
-        function chuyenDoi(){
-            let doC = +document.getElementById("doC").value;
-            
-            if(!isNaN(doC)){
-                document.getElementById("doF").value = (doC * 9/5 + 32);
+        function tinh(){
+            let canhA = +document.getElementById("canhA").value;
+            let canhB = +document.getElementById("canhB").value;
+            if(!isNaN(canhA) && !isNaN(canhB)){
+                document.getElementById("dienTich").value =canhA * canhB;
             }else{
-                document.getElementById("doF").value = "";
+                document.getElementById("dienTich").value = "";
             }
         }
     </script>

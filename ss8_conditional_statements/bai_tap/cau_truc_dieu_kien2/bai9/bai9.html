@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h2 align="center">hình tam giác</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 50%;">Cạnh a</th>
+                    <td><input type="number" id="canhA" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Cạnh b</th>
+                    <td><input type="number" id="canhB" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Cạnh c</th>
+                    <td><input type="number" id="canhC" oninput="tinh()"></td>
+                </tr>
+                <tr>
+                    <th>Kiểm tra</th>
+                    <td><input type="text" id="ketQua" disabled></td>
+                </tr>
+                <!-- <tr><th colspan="2"><span id="thongBao"></span></th></tr> -->
+            </table>
+
+        </div>
+    </div>
+    <script>
+        function tinh() {
+            let a = +document.getElementById("canhA").value;
+            let b = +document.getElementById("canhB").value;
+            let c = +document.getElementById("canhC").value;
+            let ketQua;
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                if (a > 0 && b > 0 && c > 0) {
+                    if (a + b > c && a + c > b && b + c > a) {
+                        ketQua = "abc là hình tam giác"
+                    } else {
+                        ketQua = "abc không phải hình tam giác"
+                    }
+                } else {
+                    ketQua = "vui lòng nhập đủ"
+                }
+
+
+                document.getElementById("ketQua").value = ketQua;
+            } else {
+                document.getElementById("ketQua").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
