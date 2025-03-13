@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+<body>
+    
+    <script>
+        let n = +prompt("Nhập số lượng số trong dãy fabonacci mà muốn in ra: ");
+        let chuoi = "0<br>1<br>";
+        let fn0 = 0;
+        let fn1 = 1;
+
+        for(let i = 3; i <= n; i++){
+            let fn = fn0 + fn1;
+            chuoi += fn + "<br>";
+            fn0 = fn1;
+            fn1 = fn;
+        }
+
+        console.log(chuoi);
+        document.write(chuoi);
+        
+    </script>
+</body>
+</html>

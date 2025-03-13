@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+
+    <script>
+        let n = 3;
+        let chuoi = "0 1 ";
+        let fn0 = 0;
+        let fn1 = 1;
+        let soLuong = 0
+
+        for (let i = 3; i <= n; i++) {
+            let fn = fn0 + fn1;
+            if (fn % 5 == 0) {
+                alert("Số đầu tiên chia hết cho 5 trong chuỗi fibonacci là: " + fn);
+                break;
+            }
+            chuoi += fn + " ";
+            fn0 = fn1;
+            fn1 = fn;
+            n++;
+        }
+
+        console.log(chuoi);
+        document.write(chuoi);
+
+    </script>
+</body>
+
+</html>

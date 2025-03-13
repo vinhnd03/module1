@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+
+    <script>
+        //     let nhietDo = +prompt("Nhiệt độ hôm nay: ");
+        //     while (nhietDo > 100 || nhietDo < 20) {
+        //         if(nhietDo > 100){
+        //             alert("Quá nóng, vui lòng giảm nhiệt độ");
+        //         }
+        //         if(nhietDo < 20){
+        //             alert("Quá lạnh, vui lòng tăng nhiệt độ")
+        //         }
+        //         nhietDo = +prompt("Nhiệt độ hôm nay: ");
+        //     }
+        //      
+        let nhietDo;
+        do {
+             nhietDo = +prompt("Nhiệt độ hôm nay: ");
+                if (nhietDo > 100) {
+                    alert("Quá nóng, vui lòng giảm nhiệt độ");
+                }
+                if (nhietDo < 20) {
+                    alert("Quá lạnh, vui lòng tăng nhiệt độ")
+                }
+            } while (nhietDo > 100 || nhietDo < 20)
+
+
+            alert("Nhiệt độ: " + nhietDo);
+    </script>
+</body>
+
+</html>

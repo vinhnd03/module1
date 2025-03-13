@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+</head>
+
+<body>
+    <button type="button" onclick="choi()">Chơi</button>
+
+    <script>
+        function choi() {
+            let khoangDoan = +prompt("Bạn muốn đoán số trong khoảng bao nhiêu (0 -> n)")
+            let soNgauNhien = Math.floor(Math.random() * (khoangDoan + 1));
+            let so = 0;
+            let dem = 0;
+            //console.log(soNgauNhien);
+            do {
+                so = +prompt("Nhập số: ");
+                if (so < soNgauNhien) {
+                    alert("Số trúng thưởng lớn hơn số vừa nhập");
+                }
+                if (so > soNgauNhien) {
+                    alert("Số trúng thưởng bé hơn số vừa nhập");
+                }
+                if (so == soNgauNhien) {
+                    alert("Chúc mừng bạn đã đoán trúng");
+                    break;
+                }
+                dem++;
+                if (dem >= 3) {
+                    alert("bạn đã hết lượt đoán");
+                }
+            } while (dem < 3);
+
+        }
+
+    </script>
+</body>
+
+</html>

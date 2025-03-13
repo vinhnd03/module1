@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng vòng lặp While</title>
+</head>
+
+<body>
+    <br>
+    <script>
+        function test1() {
+            let num;
+            let total = 0;
+            while (num != 0) {
+                num = +prompt("tinh tong:");
+                total += num;
+
+            }
+            alert(total)
+        }
+        function test2() {
+            let i = 1;
+
+            while (i < 100) {
+                //phân thân vòng lặp
+                document.write("<hr width = " + i + "%>");
+                i++;
+            }
+        }
+        test2()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <h1>Tính lũy thừa</h1>
+    <input type="number" id="so" oninput="tinhGiaiThua(+this.value)">
+    <div id="ketQua"></div>
+    <script>
+        function tinhGiaiThua(so) {
+            console.log(typeof(so))
+            let luyThua = 0;
+            if(so != "" || so != 0){
+                luyThua = 1;
+                for (let i = 1; i <= so; i++) {
+                luyThua *= i;
+            } 
+            }
+            document.getElementById("ketQua").innerText = "Kết quả: " + luyThua;
+        }
+    </script>
+</body>
+
+</html>

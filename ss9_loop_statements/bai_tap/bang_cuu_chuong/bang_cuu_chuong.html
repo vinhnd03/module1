@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng cửu chương</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 1000px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h1 align = center>Bảng cửu chương</h1>
+            <table id="table" border="1" cellspacing="1" cellpadding="10" width="100%">
+
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function taoBang() {
+            let chuoi = "";
+            for (let i = 1; i <= 10; i++) {
+                chuoi += "<tr>";
+                for(let j = 1; j <= 10; j++){
+                    chuoi = chuoi +  `<td> ${i} * ${j} = ${i * j} </td>`;
+                   
+                }
+                chuoi += "</tr>";
+            }
+            document.getElementById("table").innerHTML = chuoi;
+        }
+        taoBang();
+    </script>
+</body>
+
+</html>

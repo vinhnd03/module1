@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số nguyên tố</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 600px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <td>Nhập n số nguyên tố đầu tiên:</td>
+                    <td>
+                        <input type="number" id="soN" oninput="timSoNguyenTo()">
+                    </td>
+                </tr>
+                <div id="ketQua"></div>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function timSoNguyenTo() {
+            let soN = +document.getElementById("soN").value;
+            let dem = 0;
+            let ketQua = ""
+            let i = 2;
+
+            while (dem < soN) {
+                let laSoNT = true;
+
+                for (let n = 2; n <= Math.sqrt(i); n++) {
+                    if (i % n == 0) {
+                        laSoNT = false;
+                        break;
+                    }
+                }
+
+                if (laSoNT) {
+                    ketQua += i + " ";
+                    dem++;
+                }
+                i++; 
+            }
+            console.log(ketQua);
+        }
+    </script>
+</body>
+
+</html>

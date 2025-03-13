@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f1ff;
+        }
+
+        .form {
+            /* display: block; */
+            width: 500px;
+            padding: 60px;
+            background: #ededed;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <table style="width: 100%;">
+                <tr>
+                    <td>Số tiền gửi:</td>
+                    <td><input type="text" id="tienGui"></td>
+                </tr>
+                <tr>
+                    <td>Lãi xuất(%):</td>
+                    <td><input type="text" id="lai"></td>
+                </tr>
+                <tr>
+                    <td>Số tháng gửi: </td>
+                    <td><input type="text" id="soThang"></td>
+                </tr>
+                <tr style="text-align: center;">   
+                    <td colspan="2"><div id="tienLai"></div></td>
+                </tr>
+            </table>
+            <button type="button" onclick="tinhTienLai()">Tính</button>
+
+        </div>
+    </div>
+
+    <script>
+        function tinhTienLai() {
+            let tienGui = +document.getElementById("tienGui").value;
+            let lai = +document.getElementById("lai").value;
+            let soThang = +document.getElementById("soThang").value;
+            let tienLai = tienGui;
+
+            for (let i = 1; i <= soThang; i++) {
+                tienLai +=  (tienGui * lai / 100)
+                tienGui = tienLai;
+            }
+
+            document.getElementById("tienLai").innerHTML = "Tổng tiền là: " + tienLai.toFixed(2) + " VND";
+
+        }
+    </script>
+</body>
+
+</html>
