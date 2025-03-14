@@ -8,20 +8,20 @@
 </head>
 
 <body>
-    <h1>Tính lũy thừa</h1>
+    <h1>Tính giai thừa</h1>
     <input type="number" id="so" oninput="tinhGiaiThua(+this.value)">
     <div id="ketQua"></div>
     <script>
         function tinhGiaiThua(so) {
-            console.log(typeof(so))
-            let luyThua = 0;
-            if(so != "" || so != 0){
-                luyThua = 1;
+            console.log(typeof (so))
+            let giaiThua = 0;
+            if (so != "" || so != 0) {
+                giaiThua = 1;
                 for (let i = 1; i <= so; i++) {
-                luyThua *= i;
-            } 
+                    giaiThua *= i;
+                }
             }
-            document.getElementById("ketQua").innerText = "Kết quả: " + luyThua;
+            document.getElementById("ketQua").innerText = "Kết quả: " + giaiThua;
         }
     </script>
 </body>
