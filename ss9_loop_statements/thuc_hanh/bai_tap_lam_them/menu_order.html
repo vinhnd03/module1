@@ -12,10 +12,10 @@
             let tongTien = 0;
             let lap = true;
             let doUong = "";
-            let cafe = true;
+            let cafeChuaChon = true;
             let cacao = true;
             let nuocCam = true;
-            let count = 1; 
+            let soThuTu = 1; 
             do{
                 let n = +prompt(
                     "--------------------------Menu-------------------------\n" +  
@@ -28,30 +28,39 @@
                     `                                          Tổng tiền: ${tongTien} K\n` +
                     `${doUong}`
                 );
+                /*
+                tongTien = 10 + 15 + 10 + 20
+                soThuTu = 3
+                    1. Cafe 
+                    2. Caocao
+
+
+                
+                */
                 switch(n){
                     case 1:
                         // alert("Cafe");
                         tongTien += 10;
-                        if(cafe){
-                            doUong +=count + ". Cafe" +  "\n";                           
-                            cafe = false;
-                            count++;
+                        if(cafeChuaChon){
+                            doUong +=soThuTu + ". Cafe" +  "\n";                           
+                            cafeChuaChon = false;
+                            soThuTu++;
                         }                      
                         break;
                     case 2:
                         tongTien += 15;
                         if(cacao){
-                            doUong +=count + ". Cacao" +  "\n";
+                            doUong +=soThuTu + ". Cacao" +  "\n";
                             cacao = false;
-                            count++;
+                            soThuTu++;
                         }
                         break;
                     case 3:
                         tongTien += 20;
                         if(nuocCam){
-                            doUong +=count + ". Nước cam" + "\n";
+                            doUong +=soThuTu + ". Nước cam" + "\n";
                             nuocCam = false;
-                            count++;
+                            soThuTu++;
                         }
                         break;
                     case 4:
