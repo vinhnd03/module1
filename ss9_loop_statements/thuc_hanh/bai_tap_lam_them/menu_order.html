@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <button type="button" onclick="moMenu()">Menu</button>
+    <script>
+        function moMenu(){
+            let tongTien = 0;
+            let lap = true;
+            let doUong = "";
+            let cafe = true;
+            let cacao = true;
+            let nuocCam = true;
+            let count = 1; 
+            do{
+                let n = +prompt(
+                    "--------------------------Menu-------------------------\n" +  
+                    "Hãy nhập số để chọn đồ uống" + 
+                    "\n 1. Cafe:     10k" +
+                    "\n 2. Cacao:    15k" +
+                    "\n 3. Nước cam: 20k " + 
+                    "\n4. Kết thúc\n" + 
+                    "--------------------Danh sách đã chọn-------------------\n" + 
+                    `                                          Tổng tiền: ${tongTien} K\n` +
+                    `${doUong}`
+                );
+                switch(n){
+                    case 1:
+                        // alert("Cafe");
+                        tongTien += 10;
+                        if(cafe){
+                            doUong +=count + ". Cafe" +  "\n";                           
+                            cafe = false;
+                            count++;
+                        }                      
+                        break;
+                    case 2:
+                        tongTien += 15;
+                        if(cacao){
+                            doUong +=count + ". Cacao" +  "\n";
+                            cacao = false;
+                            count++;
+                        }
+                        break;
+                    case 3:
+                        tongTien += 20;
+                        if(nuocCam){
+                            doUong +=count + ". Nước cam" + "\n";
+                            nuocCam = false;
+                            count++;
+                        }
+                        break;
+                    case 4:
+                        lap = false;
+                        alert(
+                            `${doUong}` + 
+                            `==============================\n`+
+                            `Tổng tiền: ${tongTien} K`
+                        )
+                        break;
+                     default:
+                        alert("Xin mời nhập lại.");
+                }
+            }while(lap);
+        }
+    </script>
+</body>
+</html>
