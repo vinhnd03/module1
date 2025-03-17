@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        let n = prompt("Nhập n");
+        let tong = 0;
+        let tich = 1;
+        let tachSo; 
+        let lap = true;
+
+        let i = 0;
+        // alert(n.length)
+        while(i < n.length){
+            tachSo = n.toString()[i]; 
+
+            tong += parseInt(tachSo);
+            tich *= parseInt(tachSo);
+            i++;
+           
+        }
+
+        document.write("Tổng: " + tong);
+        document.write("<br>")
+        document.write("Tích: " + tich);
+    </script>
+</body>
+</html>

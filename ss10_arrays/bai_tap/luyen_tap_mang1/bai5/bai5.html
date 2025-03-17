@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let str = prompt("Nhập một chuỗi");
+        let arr = str.split('');
+        alert(arr);
+        let count = 0;
+        let nguyenAm = ["e", "u", "a", "o", "i"];
+        //e u a o i
+        for(let i = 0; i < arr.length; i++){
+            if(nguyenAm.includes(arr[i])){
+                count ++;
+            }
+        }
+        alert("Số nguyên âm trong chuỗi là: " + count);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+
+    <script>
+        let n = +prompt("Nhập n: ");
+
+        //Cách 1
+
+        // for (i = 1; i <= n; i++) {
+        //     for (j = n; j >= i; j--) {
+        //         document.write(" &ensp; ");
+        //     }
+        //     for (k = 1; k <= i; k++) {
+        //         document.write(" * ")
+        //     }
+        //     for (j = 2; j <= i; j++) {
+        //         document.write(" * ");
+        //     }
+        //     for (k = n; k >= i; k--) {
+        //         document.write(" &ensp; ")
+        //     }
+        //     document.write(" <br> ")
+        // }
+
+        //Cách 2
+
+        function printTriangle() {
+            for (let i = 1; i <= n; i++) {
+                ///////////////////////
+                for (let j = 1; j <= n - i; j++) {
+                    document.write(" &ensp; ");
+                }
+                for (let j = 1; j <= 2 * i - 1; j++) {
+                    document.write(" * ");
+                }
+                document.write("<br>"); 
+                //////////////////////              
+            }
+        }
+
+        printTriangle();
+
+    </script>
+</body>
+
+</html>

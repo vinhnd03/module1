@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng hàm có sẵn của mảng</title>
+</head>
+
+<body>
+
+    <script>
+        //Nối các phần tử trong mảng thành chuỗi
+        let animals = ["dog", "cat", "mouse", "chicken"];
+        console.log(animals.toString());
+        console.log(animals.join("_"))
+
+        //Chèn dấu "-" giữa các số chẵn
+        let chuoiSo = prompt("Nhập một chuỗi số bất kỳ: ")
+        let arr = chuoiSo.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (Number(arr[i]) % 2 == 0 && Number(arr[(i + 1)]) % 2 == 0) {
+                arr.splice(i + 1, 0, "-");
+                i++;
+            }
+        }
+        console.log(arr.join(''));
+
+        //Chuyển đổi chữ thường thành chữ hoa và ngược lại
+        let chuoi = prompt("Mời nhập một chuỗi chữ: ")
+        let chuHoa = /^[A-Z]/;
+        let arr2 = chuoi.split('');
+        for (let i = 0; i < arr2.length; i++) {
+            if (chuHoa.test(arr2[i])) {
+                
+                arr2[i] = arr2[i].toLowerCase();
+            } else {
+                arr2[i] = arr2[i].toUpperCase();
+            }
+        }
+        console.log(arr2.join('')); 
+         
+    </script>
+</body>
+
+</html>

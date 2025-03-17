@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+</head>
+
+<body>
+
+    <script>
+
+        let a = +prompt("Nhập a: ");
+        let b = +prompt("Nhập b: ");
+        let uocChung = 0;
+        let boiChung = 0;
+
+        if (a >= b) {
+            for (let i = a; ; i--) {
+                if (a % i == 0 && b % i == 0) {
+                    uocChung = i;
+                    break;
+                }
+            }
+            for (let i = b; ; i++) {
+                if (i % a == 0 && i % b == 0) {
+                    boiChung = i;
+                    break;
+                }
+            }
+        }
+        else {
+            for (let i = b; ; i--) {
+                if (a % i == 0 && b % i == 0) {
+                    uocChung = i;
+                    break;
+                }
+            }
+            for (let i = a; ; i++) {
+                if (i % a == 0 && i % b == 0) {
+                    boiChung = i;
+                    break;
+                }
+            }
+        }
+
+        document.write("Ước chung lớn nhất: " + uocChung);
+        document.write("<br>")
+        document.write("Bội chung nhỏ nhất: " + boiChung);
+    </script>
+</body>
+
+</html>

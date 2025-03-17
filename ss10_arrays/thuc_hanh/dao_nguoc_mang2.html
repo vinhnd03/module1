@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo mảng</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5, 6];
+        alert(arr);
+
+        //tu lam
+        let num1 = 0;
+        let num2 = arr.length - 1;
+        for (let i = 0; i <= arr.length / 2; i++) {
+            num1 = arr[i];
+            arr[i] = arr[num2];
+            arr[num2] = num1;
+            num2--;
+        }
+        alert(arr);
+
+        //cach toi uu
+        for (let i = 0; i <= arr.length / 2; i++) {
+            let temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+
+        alert(arr);
+    </script>
+</body>
+
+</html>

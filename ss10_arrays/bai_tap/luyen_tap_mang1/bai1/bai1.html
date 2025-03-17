@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <script>
+        let arr = new Array(10);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = +prompt("Nhập phần tử thứ " + i );
+        }
+
+        // let arr2;
+        for(let i = 0; i< arr.length; i++){
+            if(arr[i] < 10){
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+
+        alert(arr);
+    </script>
+</body>
+
+</html>

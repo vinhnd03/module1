@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        let arr = new Array(10);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = +prompt("Nhập số thứ " + i);
+        }
+        let max = arr[0]
+        let viTri;
+        for(let i = 1; i< arr.length; i++){
+          if(arr[i] > max){
+            max = arr[i];
+            viTri = i;
+          }
+        }
+
+        alert(`Số lớn nhất trong mảng là ${max} ở vị trí ${viTri}`);
+    </script>
+</body>
+
+</html>

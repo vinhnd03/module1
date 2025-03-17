@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập phần tử vào mảng</title>
+</head>
+<body>
+    <script>
+        let doDai;
+        //Kiểm tra độ dài nhập vào
+        do{
+            doDai = +prompt("Nhập độ dài của mảng: ");
+
+        }while(doDai <= 0 || doDai > 20);
+
+        //khai báo một mảng và gắn độ dài của mảng là độ dài vừa nhập
+        let array = new Array(doDai);
+
+        // NHập các phần từ của mảng từ bản phím
+        for(let i = 0; i < array.length; i++){
+
+            array[i] = +prompt(`Phần tử thứ ${i}: ` );
+
+        }
+        //in ra màn hình
+        document.write(array);
+    </script>
+    <!-- adxf -->
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <script>
+        let n = 5;
+        let tong = 0;
+        let giaiThua = 1;
+
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= (2 * i - 1); j++) {
+                giaiThua *= j;
+            }
+            tong += 1 / giaiThua;
+            giaiThua = 1;
+        }
+        document.write(tong)
+    </script>
+</body>
+
+</html>

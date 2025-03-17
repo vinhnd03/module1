@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim gia tri trong mang</title>
+</head>
+
+<body>
+    <script>
+        let arr = [2, 3, 7, 4, 9, 1];
+        let value = +prompt("Nhap n");
+        let index = -1;
+        for (let i = 0; i < arr.length; i++) {
+            if (value == arr[i]) {
+                //alert("value " + arr[i] + " found at " + i);
+                index = i;
+            }
+        }
+        if (index > -1) {
+            alert("value " + value + " found at " + index);
+        } else {
+            alert("value " + value + " not found");
+        }
+
+
+        //tim so lon nhat
+        let index2 = 0;
+        let max = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if(max < arr[i]){
+                max = arr[i];
+                index2 = i;
+            }
+        }
+
+        alert("max " + max + " at position " + index2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        let year = parseInt(prompt("Enter a year: "));
+        let month = parseInt(prompt("Enter a month"));
+
+        let isLeapYear = (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0);
+
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert(`Tháng ${month} Năm ${year} có 31 ngày`);
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert(`Tháng ${month} Năm ${year} có 30 ngày`);
+                break;
+            case 2:
+                if (isLeapYear) {
+                    alert(`Tháng ${month} Năm ${year} có 29 ngày`);
+                } else {
+                    alert(`Tháng ${month} Năm ${year} có 28 ngày`);
+                }
+                break;
+
+        }
+    </script>
+</body>
+
+</html>

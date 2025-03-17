@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển</title>
+</head>
+<body>
+    <input type="text" id = "dich">
+    <button onclick="dich()">Dịch</button>
+    <p id="hienThi"></p>
+    <script>
+        let vietnamese = ["trai cay", "dong vat", "dien thoai", "may tinh"];
+        let english = ["fruit", "animal", "phone", "computer"];
+
+        function dich(){
+            let text = document.getElementById("dich").value;
+            if(english.includes(text)){
+                document.getElementById("hienThi").innerText = vietnamese[english.indexOf(text)];
+                // alert("hello")
+            }else{
+                document.getElementById("hienThi").innerText = "Không tìm thấy";
+            }
+        }
+    </script>
+</body>
+</html>

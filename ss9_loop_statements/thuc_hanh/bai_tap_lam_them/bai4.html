@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+    <script>
+        let n = +prompt("Nhập N");
+        let tong = 15;
+        let giaiThuaN = 1;
+        let tinh;
+        for (let i = 1; i <= n; i++) {
+            giaiThuaN *= i;
+            tinh = ((-1) ** i) * (1 / giaiThuaN);
+            tong += tinh
+
+            document.write(`Tổng lần ${i} (chưa + 15): ${tinh}`);
+            document.write("<br>");
+        }
+        document.write("Lũy thừa cuối của n: " + giaiThuaN);
+        document.write("<br>");
+
+        document.write("Tổng:" + tong);
+    </script>
+</body>
+
+</html>
