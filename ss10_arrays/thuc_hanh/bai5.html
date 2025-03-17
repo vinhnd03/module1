@@ -8,7 +8,10 @@
 <body>
     <script>
         let str = prompt("Nhập một chuỗi");
-        let arr = str.split('');
+        let arr = str.split(/\s+/);
+        alert(arr)
+        arr = arr.join("");
+        alert(arr);
         let count = 0;
         let nguyenAm = ["e", "u", "a", "o", "i"];
         //e u a o i
