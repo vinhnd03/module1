@@ -8,7 +8,9 @@
 <body>
     <script>
         let str = prompt("Nhập một chuỗi");
-        let arr = str.split('');
+        let arr = str.split(/\s+/);
+        alert(arr)
+        arr = arr.join("");
         alert(arr);
         let count = 0;
         let nguyenAm = ["e", "u", "a", "o", "i"];
@@ -19,7 +21,7 @@
             }
         }
         alert("Số nguyên âm trong chuỗi là: " + count);
-
+        // đế số từ có trong chuỗi
     </script>
 </body>
 </html>
