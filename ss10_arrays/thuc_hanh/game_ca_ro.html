@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Caro</title>
+</head>
+
+<body>
+    <span id="table"></span>
+
+    <script>
+        let row = 10;
+        let col = 10;
+        let isPlayer1 = true;
+
+        let arr = new Array(row);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = new Array(col);
+            for (let j = 0; j < arr[i].length; j++) {
+                arr[i][j] = ' ';
+            }
+        }
+
+        function displayTable() {
+            let table = '<table border="1">';
+            for (let i = 0; i < row; i++) {
+                table += "<tr>"
+                for (let j = 0; j < col; j++) {
+                    table += ` <td style="width: 40px; height: 40px; text-align: center" onclick="draw(${i}, ${j})">${arr[i][j]}</td>`;
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+
+            document.getElementById("table").innerHTML = table;
+        }
+
+        function isWin(kyTu) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    if (arr[i][j] == kyTu && arr[(i + 1)][(j + 1)] == kyTu && arr[(i + 2)][(j + 2)] == kyTu) {
+                        if (kyTu == "&#10006;") {
+                            alert("X thắng");
+                        } else {
+                            alert("O thắng")
+                        }
+
+                    }
+                    if (arr[i][j] == kyTu && arr[(i + 1)][(j)] == kyTu && arr[(i + 2)][(j)] == kyTu) {
+                        if (kyTu == "&#10006;") {
+                            alert("X thắng");
+                        } else {
+                            alert("O thắng")
+                        }
+                    }
+                    if (arr[i][j] == kyTu && arr[(i)][(j + 1)] == kyTu && arr[(i)][(j + 2)] == kyTu) {
+                        if (kyTu == "&#10006;") {
+                            alert("X thắng");
+                        } else {
+                            alert("O thắng")
+                        }
+                    }
+                    if (arr[i][j] == kyTu && arr[(i + 1)][(j - 1)] == kyTu && arr[(i + 2)][(j - 2)] == kyTu) {
+                        if (kyTu == "&#10006;") {
+                            alert("X thắng");
+                        } else {
+                            alert("O thắng")
+                        }
+                    }
+                }
+            }
+        }
+
+        displayTable();
+
+        function draw(i, j) {
+            // 
+            if (arr[i][j] === ' ') {
+                if (isPlayer1) {
+                    arr[i][j] = "&#10006;";
+                    isWin("&#10006;");
+                    isPlayer1 = false;
+
+                } else if (!isPlayer1) {
+                    arr[i][j] = "&#79;";
+                    isPlayer1 = true;
+                    isWin("&#79;");
+
+                }
+            } else {
+                alert("Xin mời nhập lại")
+            }
+
+
+            displayTable();
+        }
+
+    </script>
+</body>
+
+</html>

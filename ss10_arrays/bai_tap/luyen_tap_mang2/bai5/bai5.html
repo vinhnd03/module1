@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <script>
+        let str1 = "123456789";
+        let str2 = "123456789";
+
+        let arr1 = str1.split('');
+        let arr2 = str2.split('');
+
+        let same = true;
+
+
+        if(arr1.length == arr2.length){
+            for(let i = 0; i < arr1.length; i++){
+                if(arr1[i] !== arr2[i]){
+                    same = false;
+                    break;
+                }
+            }
+        }else{
+            same = false;
+        }
+
+        if(same){
+            alert("2 chuỗi giống nhau");
+        }else{
+            alert("2 chuỗi khác nhau");
+        }
+    </script>
+</body>
+
+</html>

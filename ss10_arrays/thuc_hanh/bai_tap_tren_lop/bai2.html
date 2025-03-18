@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        let str = "hello ho world hello hello ho ho hi hi";
+        var arr = str.split(' ');
+        // alert(arr);
+        let demTu = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (!demTu.includes(arr[i])) {
+                demTu.push(arr[i]);
+                demTu.push(1);
+            } else {
+                demTu[demTu.indexOf(arr[i]) + 1] += 1;
+            }
+        }
+        let thongBao = "";
+        for (let i = 0; i < demTu.length; i += 2) {
+            thongBao += `từ "${demTu[i]}" xuất hiện ${demTu[i + 1]} lần\n`
+        }
+
+        alert(thongBao);
+    </script>
+</body>
+
+</html>
