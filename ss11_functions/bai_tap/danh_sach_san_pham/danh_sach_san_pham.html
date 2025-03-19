@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+</head>
+
+<body>
+
+
+    <div id="bang"></div>
+
+    <script>
+        let sanPham = ["chuot", "man hinh", "ban phim", "ram", "o cung", "card"];
+        dangCapNhat = false;
+        function inBang() {
+            let table = "";
+
+            table += `<input type="text" placeholder="thêm sản phẩm mới" id="sanPhamMoi" oninput="kiemTraTrong()">`;
+            table += `<button type="button" onclick="them()">Xác nhận</button>`;
+            table += `<input type="hidden" id="dangChon">`;
+            table += '<table border="1" style="width: 40%">';
+            for (let i = 0; i < sanPham.length; i++) {
+                table += `<tr>`;
+                table += ` <td>${sanPham[i]}</td>`;
+                table += ` <td><button type="button" onclick="capNhat(${i})">Sửa</button></td>`;
+                table += `<td><button type="button" onclick="xoa(${i})">Xóa</button></td>`;
+                table += `</tr>`;
+            }
+            table += ` </table>`;
+
+            document.getElementById("bang").innerHTML = table;
+        }
+
+        inBang();
+
+        function them() {
+            if (!dangCapNhat) {
+                let sanPhamMoi = document.getElementById("sanPhamMoi").value;
+                if (sanPhamMoi != '') {
+                    sanPham.push(sanPhamMoi);
+                    inBang();
+                }
+
+            } else {
+                let index = document.getElementById("dangChon").value;
+                let sanPhamMoi = document.getElementById("sanPhamMoi").value;
+                sanPham.splice(index, 1, sanPhamMoi);
+                dangCapNhat = false;
+                inBang();
+            }
+
+        }
+
+        function xoa(index) {
+            sanPham.splice(index, 1);
+            inBang();
+        }
+
+        function capNhat(index) {
+            document.getElementById("sanPhamMoi").value = sanPham[index];
+            dangCapNhat = true;
+            document.getElementById("dangChon").value = index;
+            // inBang();
+        }
+
+        function kiemTraTrong() {
+            let inp = document.getElementById("sanPhamMoi").value;
+            if (inp == '') {
+                dangCapNhat = false;
+            }
+        }
+    </script>
+</body>
+
+</html>
