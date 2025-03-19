@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo và gọi hàm</title>
+</head>
+
+<body>
+    <script>
+        function confirm(answer) {
+            let result = "";
+            if (answer) {
+                result = "Let's play";
+            } else {
+                result = "Bye";
+            }
+            return result;
+        }
+
+        let ask = confirm("u want to play?");
+        alert(ask);
+        
+    </script>
+</body>
+
+</html>

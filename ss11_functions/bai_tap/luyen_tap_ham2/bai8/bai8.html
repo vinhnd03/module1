@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+</head>
+
+<body>
+    <script>
+        function daoNguocMang(array) {
+            for (i = 0; i < array.length / 2; i++) {
+                let temp = array[i];
+                array[i] = array[array.length - 1 - i];
+                array[array.length - 1 - i] = temp;
+            }
+
+            return array;
+        }
+        let arr = [2, 1, 4, 5, 9, 3, 0];
+        alert(daoNguocMang(arr));
+    </script>
+</body>
+
+</html>

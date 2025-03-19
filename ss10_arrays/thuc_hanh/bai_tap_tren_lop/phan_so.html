@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra và rút gọn phân số</title>
+</head>
+
+<body>
+    <script>
+        let str;
+        let arr = [];
+        let lap = true;
+        do {
+            let count = 0;
+            str = prompt("Nhập phân số");
+            arr = str.split("/");
+            // alert(arr);
+            if (arr[1] != 0) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (!isNaN(arr[i])) {
+                        count++;
+                    }
+                }
+                if (count === 2) {
+                    lap = false;
+                }
+            }
+        } while (lap)
+        let n = 0;
+        if (arr[0] > arr[1]) {
+            for (let i = arr[1]; i > 1; i--) {
+                if (arr[0] % i == 0 && arr[1] % i == 0) {
+                    n = i;
+                    break;
+                }
+            }
+        } else {
+            for (let i = arr[0]; i > 1; i--) {
+                if (arr[0] % i == 0 && arr[1] % i == 0) {
+                    n = i;
+                    break;
+                }
+            }
+        }
+        // alert(n);
+        if (n) {
+            arr[0] = arr[0] / n;
+            arr[1] = arr[1] / n;
+        }
+
+
+        if (arr[1] == 1) {
+            arr.pop();
+            alert(arr);
+        } else {
+            alert(arr.join("/"))
+        }
+
+
+    </script>
+</body>
+
+</html>

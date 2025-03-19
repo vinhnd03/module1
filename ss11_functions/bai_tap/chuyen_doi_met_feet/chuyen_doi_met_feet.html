@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi mét và feet</title>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Mét</td>
+            <td>Feet</td>
+        </tr>
+        <tr>
+            <td> <input type="number" id="met" oninput="chuyenDoi(this.id, this.value)"><br></td>
+            <td> <input type="number" id="feet" oninput="chuyenDoi(this.id, this.value)"><br></td>
+        </tr>
+    </table>
+
+    <script>
+        function chuyenDoi(id, value) {
+            if (id == "met") {
+                document.getElementById("feet").value = 3.279 * value;
+            } else if(id = "feet"){
+                document.getElementById("met").value = 0.305 * value;
+            }
+        }
+    </script>
+</body>
+
+</html>

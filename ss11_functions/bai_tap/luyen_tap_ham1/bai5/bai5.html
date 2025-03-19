@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let arr2 = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+
+        function nhapTenNgoiSao(ten) {
+            let check = false;
+            // console.log(ten)
+            // console.log(arr1)
+            for (let i = 0; i < arr1.length; i++) {
+                if (ten == arr1[i]) {
+                    let index = arr1.indexOf(arr1[i]);
+                    return arr2[index];
+                    check = true;
+                    break;
+                }
+            }
+            if (!check) {
+                return "Không tìm thấy";
+            }
+        }
+
+        let nhap = nhapTenNgoiSao(prompt("Nhập tên ngôi sao: "));
+        alert(nhap);
+    </script>
+</body>
+
+</html>

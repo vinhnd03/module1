@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <script>
+        function timSoNhoNhat(arr) {
+            let min = parseFloat(arr[0]);
+            for (i = 0; i < arr.length; i++) {
+                arr[i] = parseFloat(arr[i]);
+                if (min > arr[i]) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+
+        let str = prompt("Nhập các số để tìm ra số nhỏ nhất: ");
+        let array = str.split(',');
+        
+        let min = timSoNhoNhat(array);
+        alert(min + " Là số nhỏ nhất trong các số");
+        console.log(array);
+    </script>
+</body>
+
+</html>
