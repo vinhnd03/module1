@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+
+        function kiemTraKyTu(array) {
+            let char = /[A-Za-z]/;
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (!isNaN(array[i])) {
+                    count++;
+                } else if (char.test(array[i])) {
+                    count--;
+                }
+            }
+            if (count === array.length) {
+                return 1;
+            } else if ((count * -1) === array.length) {
+                return 0;
+            } else {
+                return -1;
+            }
+        }
+
+
+        let arr = [ "i", "a"];
+        alert(kiemTraKyTu(arr));
+    </script>
+</body>
+
+</html>

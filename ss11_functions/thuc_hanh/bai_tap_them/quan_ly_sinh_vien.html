@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+</head>
+
+<body>
+    <script>
+        let studentList = ["Nguyen Van A", "Tran Van B", "Le Thi C"];
+        while (true) {
+            let choice = prompt(
+                "---------Quản lý sinh viên--------- \n" +
+                "Hãy nhập số để chọn đồ uống \n" +
+                "1. Hiển thị danh sách sinh viên \n" +
+                "2. Thêm mới sinh viên \n" +
+                "3. Xóa sinh viên \n" +
+                "4. Kết thúc chương trình"
+            );
+            switch (choice) {
+                case "1":
+                    show();
+                    break;
+                case "2":
+                    add();
+                    break;
+                case "3":
+                    del();
+                    break;
+                case "4":
+                    alert("Kết thúc chương trình");
+                    break;
+            }
+            if (choice === "4") {
+                break;
+            }
+        }
+
+        function show() {
+            let str = "";
+            str += "Danh sách sinh viên:\n\n";
+            for (let i = 0; i < studentList.length; i++) {
+                str += `${i + 1}.  ${studentList[i]}\n`
+            }
+
+            if (studentList.length == 0) {
+                str += "Danh sách trống";
+            }
+            alert(str);
+        }
+
+        function add() {
+            let student = prompt("Nhập tên sinh viên:");
+            studentList.push(student);
+            show()
+        }
+
+        function del() {
+            let str = "";
+            str += "Danh sách sinh viên:\n";
+            for (let i = 0; i < studentList.length; i++) {
+                str += `${i + 1}.  ${studentList[i]}.\n`
+            }
+            str += "\nChọn mã của sinh viên cần xóa:";
+            let studentIndex = prompt(str);
+            if (!studentList[studentIndex - 1]) {
+                alert("Không tìm thấy sinh viên này");
+                // del();
+            } else {
+                let conf = confirm("Bạn có muốn xóa sinh viên này không?");
+                if (conf) {
+                    studentList.splice(studentIndex - 1, 1);
+                }
+                show();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

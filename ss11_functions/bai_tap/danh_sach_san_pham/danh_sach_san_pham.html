@@ -15,6 +15,44 @@
     <script>
         let sanPham = ["chuot", "man hinh", "ban phim", "ram", "o cung", "card"];
         dangCapNhat = false;
+        let trangHienTai = 1;
+        let n = 0;
+        let soTrang = Math.ceil(sanPham.length / 5);
+        function phanTrang() {
+
+            let phanTrang = [];
+            for (let i = n; i < n + 5; i++) {
+                if (typeof sanPham[i] == "undefined") {
+                    break;
+                }
+                phanTrang.push(sanPham[i]);
+            }
+            return phanTrang;
+        }
+        function truoc() {
+            if (n > 0) {
+                n -= 5;
+                trangHienTai -= 1;
+                // alert(trangHienTai);
+            }
+
+            // phanTrang();
+            inBang();
+        }
+
+        function sau() {
+            if (n + 5 < sanPham.length) {
+                // alert(n);
+                // alert(sanPham.length);
+                n += 5;
+                trangHienTai += 1;
+                // alert(trangHienTai)
+            }
+            inBang();
+        }
+        // return phanTrang;
+
+        // }
         function inBang() {
             let table = "";
 
@@ -22,45 +60,68 @@
             table += `<button type="button" onclick="them()">Xác nhận</button>`;
             table += `<input type="hidden" id="dangChon">`;
             table += '<table border="1" style="width: 40%">';
-            for (let i = 0; i < sanPham.length; i++) {
+            for (let i = 0; i < phanTrang().length; i++) {
                 table += `<tr>`;
-                table += ` <td>${sanPham[i]}</td>`;
+                table += ` <td>${phanTrang()[i]}</td>`;
                 table += ` <td><button type="button" onclick="capNhat(${i})">Sửa</button></td>`;
                 table += `<td><button type="button" onclick="xoa(${i})">Xóa</button></td>`;
                 table += `</tr>`;
             }
             table += ` </table>`;
 
+            table += `<button type="button" onclick="truoc()"><</button>`;
+            for (let i = 1; i <= soTrang; i++) {
+                table += `<button type="button"">...</button>`;
+            }
+            table += `<button type="button" onclick="sau()"> ></button>`;
+
+
+
             document.getElementById("bang").innerHTML = table;
         }
 
         inBang();
+
+
+
 
         function them() {
             if (!dangCapNhat) {
                 let sanPhamMoi = document.getElementById("sanPhamMoi").value;
                 if (sanPhamMoi != '') {
                     sanPham.push(sanPhamMoi);
+                    soTrang = Math.ceil(sanPham.length / 5);
                     inBang();
                 }
 
             } else {
                 let index = document.getElementById("dangChon").value;
                 let sanPhamMoi = document.getElementById("sanPhamMoi").value;
-                sanPham.splice(index, 1, sanPhamMoi);
+                // if (trangHienTai > 1) {
+                    sanPham.splice(index + ((trangHienTai - 1) * 5), 1, sanPhamMoi);
+                // } else {
+                    // sanPham.splice(index, 1, sanPhamMoi);
+                // }
+// 
                 dangCapNhat = false;
                 inBang();
             }
 
+            console.log(soTrang);
         }
 
         function xoa(index) {
-            sanPham.splice(index, 1);
+            sanPham.splice(index + n, 1);
+            // phanTrang().splice(index, 1);
+            if (n + 5 > sanPham.length) {
+                truoc();
+            }
+            soTrang = Math.ceil(sanPham.length / 5);
             inBang();
         }
 
         function capNhat(index) {
-            document.getElementById("sanPhamMoi").value = sanPham[index];
+            document.getElementById("sanPhamMoi").value = phanTrang()[index];
             dangCapNhat = true;
             document.getElementById("dangChon").value = index;
             // inBang();

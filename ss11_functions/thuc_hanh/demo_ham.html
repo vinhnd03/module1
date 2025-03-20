@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video demo</title>
+</head>
+
+<body>
+    <h1>Quan ly sinh vien</h1>
+    <input type="text" id="name" placeholder="nhap ten">
+    <button onclick="addNewStudent()">Add new student</button>
+    <div id="result"></div>
+
+    <script>
+        let studentList = ["vinh", "vinh2", "vinh3", "vinh4"];
+        display(studentList);
+
+        function  addNewStudent(){
+            let newStudent = document.getElementById("name").value;
+            if(newStudent !=  ""){
+                studentList.push(newStudent);
+            }else{
+                alert("yeu cau nhap ten sinh vien")
+            }
+           
+            display(studentList);
+            document.getElementById("name").value= "";
+        }
+
+        function deleteStudent(index){
+            let conf = confirm("Ban co muon xoa sinh vien nay ko?")
+            if(conf){
+                studentList.splice(index, 1); 
+            }
+            
+            display(studentList);
+        }
+
+        function editStudent(index){
+            let editStudent = prompt("Nhap ten can sua cho " +  studentList[index]);
+            studentList[index] = editStudent;
+            display(studentList);   
+        }
+
+        function display(list) {
+            let tableString = `<table border="1" style="">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Name</th>
+                                    <th colspan="2">So luong: <span id="soLuong"></span></th>
+                                </tr>`;
+            for (let i = 0; i < list.length; i++) {
+                tableString  += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td>${list[i]}</td>
+                            <td><button type="button" onclick="editStudent(${i})">Sua</button></td>
+                            <td><button type="button" onclick="deleteStudent(${i})">Xoa</button></td>
+                        </tr>`
+            }
+            tableString += `</table>`
+            document.getElementById("result").innerHTML = tableString;
+            document.getElementById("soLuong").innerText = list.length;
+        }
+        
+    </script>
+</body>
+
+</html>

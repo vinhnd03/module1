@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài 3</title>
+</head>
+
+<body>
+    <script>
+
+        function kiemTraSoNguyenTo(array) {
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                let isSoNguyenTo = true;
+                if (array[i] > 1) {
+                    for (let j = 2; j < array[i]; j++) {
+                        if (arr[i] % j == 0) {
+                            isSoNguyenTo = false;
+                            break;
+                        }
+                    }
+                    if (isSoNguyenTo) {
+                        count++;
+                    }
+                }else{
+                    break;
+                }
+
+            }
+            if (count === arr.length) {
+                return true;
+            } else {
+                return false
+            }
+        }
+
+
+        let arr = [2, 3];
+        alert(kiemTraSoNguyenTo(arr));
+    </script>
+</body>
+
+</html>
