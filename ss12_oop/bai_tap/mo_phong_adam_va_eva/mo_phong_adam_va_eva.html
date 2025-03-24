@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng mô phỏng câu chuyện Adam và Eva</title>
+</head>
+
+<body>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+
+            decrease() {
+                if (this.weight > 0) {
+                    this.weight--;
+                }
+            }
+            getWeight() {
+                return this.weight;
+            }
+
+            isEmpty() {
+                if (this.weight < 0) {
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            isMale() {
+                if (this.gender) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            setGender(gender) {
+                this.gender = gender;
+            }
+
+            checkApple(apple) {
+                if (!apple.isEmpty()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            eat(apple) {
+                apple.decrease();
+                this.weight++;
+            }
+
+            say(string) {
+                alert("string");
+            }
+
+            setName(name) {
+                this.name = name;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+
+            setWeight(weight) {
+                this.weight = weight;
+            }
+        }
+
+        let adam = new Human("Adam", true, 70);
+        let eva = new Human("Eva", false, 55);
+
+        let apple1 = new Apple();
+
+        adam.eat(apple1);
+        alert(apple1.weight);
+        alert(adam.weight);
+
+        alert(adam.checkApple(apple1));
+
+        eva.eat(apple1);
+        alert(eva.weight);
+
+        alert(apple1.weight);
+    </script>
+</body>
+
+</html>

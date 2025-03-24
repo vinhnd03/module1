@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <!-- &ensp;  -->
+    <script>
+        
+        let max = 20;
+        for (let i = 1; i < max; i++) {
+            for (let j = 1; j <= max; j++) {
+                if (j == max / 2 - i + 1 || j == max / 2 + i) {
+                    document.write(` ${i} `)
+                }
+                else if (j == i - max / 2 + 1 || j == max + max / 2 - i) {
+                    document.write(` ${max - i} `)
+                }
+                else {
+                    document.write(` &ensp; `)
+                }
+            }
+            document.write("<br>")
+
+        }
+    </script>
+</body>
+
+</html>

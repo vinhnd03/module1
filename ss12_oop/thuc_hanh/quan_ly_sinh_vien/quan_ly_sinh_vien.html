@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+</head>
+
+<body>
+
+    <div id="bang"></div>
+
+    <script>
+
+        class SinhVien {
+            constructor(id, name, score) {
+                this.id = id;
+                this.name = name;
+                this.score = score;
+            }
+        }
+        let sinhVien1 = new SinhVien(1, "Nguyen Van A", 7.8);
+        let sinhVien2 = new SinhVien(2, "Nguyen Van B", 7.8);
+        let sinhVien3 = new SinhVien(3, "Nguyen Van C", 7.8);
+        let sinhVien4 = new SinhVien(4, "Nguyen Van D", 7.8);
+        let sinhVien5 = new SinhVien(5, "Nguyen Van E", 7.8);
+        let sinhVien6 = new SinhVien(6, "Nguyen Van F", 7.8);
+
+        let sinhViens = [];
+        sinhViens.push(sinhVien1, sinhVien2, sinhVien3, sinhVien4, sinhVien5, sinhVien6);
+
+        let isUpdate = false;
+
+        display();
+
+        function display() {
+            let tableStr = "";
+
+            tableStr += `
+                 <table>
+                    <tr>
+                        <td><span>ID:</span></td>
+                        <td><input id="id" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Tên:</span></td>
+                        <td><input id="name" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Điểm:</span></td>
+                        <td><input id="score" type="text"></td>
+                    </td>
+                    <tr>
+                        <th colspan="2">
+                            <input type="button" id="button" value="Thêm" onclick="them()">
+                            <input type="button" id="reset" value="Hủy" onclick="lamMoi()">
+                        </th>
+                    </tr>
+                </table>`
+            tableStr += `<hr>`;
+            tableStr += `<input type="hidden" id="selecting">`;
+            tableStr += '<table border="1" style="">';
+            tableStr += `<tr>`;
+            tableStr += `<th>ID</th>`
+            tableStr += `<th>Tên sinh viên</th>`
+            tableStr += `<th>Điểm số</th>`
+            tableStr += `<th colspan="2">Tổng số SV: ${sinhViens.length}</th>`
+            tableStr += `</tr>`;
+
+            for (let i = 0; i < sinhViens.length; i++) {
+                tableStr += `<tr>`;
+                tableStr += `<td>${sinhViens[i].id}</td>`;
+                tableStr += `<td>${sinhViens[i].name}</td>`;
+                tableStr += `<td>${sinhViens[i].score}</td>`;
+                tableStr += ` <td><button type="button" onclick="capNhat(${i})">Sửa</button></td>`;
+                tableStr += `<td><button type="button" onclick="xoa(${i})">Xóa</button></td>`;
+                tableStr += `</tr>`;
+            }
+
+            tableStr += ` </table>`;
+
+            document.getElementById("bang").innerHTML = tableStr;
+        }
+
+
+        function them() {
+            let id = +document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let score = +document.getElementById("score").value;
+
+            if (!isUpdate) {
+                let sinhVienMoi = new SinhVien(id, name, score);
+                sinhViens.push(sinhVienMoi);
+            } else {
+                let index = +document.getElementById("selecting").value;
+
+                sinhViens[index].id = id;
+                sinhViens[index].name = name;
+                sinhViens[index].score = score;
+                isUpdate = false;
+            }
+
+
+            display();
+        }
+
+        function xoa(index) {
+            sinhViens.splice(index, 1);
+            display();
+        }
+
+        function capNhat(index) {
+            document.getElementById("id").value = sinhViens[index].id;
+            document.getElementById("name").value = sinhViens[index].name;
+            document.getElementById("score").value = sinhViens[index].score;
+
+            document.getElementById("selecting").value = index;
+            document.getElementById("button").value = "Cập nhật";
+            isUpdate = true;
+        }
+
+        function lamMoi() {
+            document.getElementById("id").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("score").value = "";
+            document.getElementById("button").value = "Thêm";
+
+            isUpdate = false;
+        }
+    </script>
+</body>
+
+</html>

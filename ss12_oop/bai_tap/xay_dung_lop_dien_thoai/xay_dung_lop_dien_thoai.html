@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+
+<body>
+    <script>
+        class Mobile {
+
+            constructor(battery) {
+                this.battery = battery;
+
+                this.sentMessages = [];
+
+                this.receivedMessages = [];
+
+                this.status = false;
+            }
+
+            getBattery() {
+                return this.battery;
+            }
+
+            charge(battery) {
+                if (battery > 0 && battery <= 100) {
+                    this.battery = battery;
+                } else {
+                    this.battery = 1;
+                }
+            }
+
+            useMobile() {
+                this.battery -= 1;
+            }
+
+            getSentMessages() {
+                this.useMobile()
+                return this.sentMessages;
+
+            }
+
+            getReceviedMessages() {
+                this.useMobile()
+
+
+                return this.receivedMessages;
+            }
+
+            send(message) {
+                this.useMobile()
+
+                // mobile.receive(message);
+                this.sentMessages.push(message);
+                return message;
+            }
+
+            receive(message) {
+                this.useMobile()
+
+                this.receivedMessages.push(message);
+                return message;
+            }
+        }
+
+        let iphone = new Mobile(1);
+        iphone.charge(80);
+        let oppo = new Mobile(100);
+
+
+        alert(oppo.receive(iphone.send("Hello")));
+
+
+
+        let message = iphone.send("Hi");
+        oppo.receive(message);
+
+        alert(oppo.getReceviedMessages());
+
+
+        alert(oppo.battery);
+        // alert(oppo.receive(iphone.send("lo")));
+
+
+    </script>
+</body>
+
+</html>

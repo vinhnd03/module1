@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9</title>
+</head>
+
+<body>
+    <script>
+        function countLetter(str) {
+            let arr = str.trim().split('');
+            let tempArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] != ' ' && !tempArr.includes(arr[i])){
+                    tempArr.push(arr[i]);
+                }
+            }
+            return tempArr.length;
+        }
+
+        let string = "hello world";
+
+        alert(countLetter(string));
+    </script>
+</body>
+
+</html>

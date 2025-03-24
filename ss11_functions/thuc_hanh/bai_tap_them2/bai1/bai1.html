@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <script>
+        function checkArray(array) {
+            let check = true;
+            for (let i = 0; i < array.length; i += 2) {
+                if (array[i] > array[i + 1]) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                return "ok";
+            } else {
+                return "no";
+            }
+        }
+
+        let length = +prompt("Nhập độ dài: ");
+        while (length % 2 != 0) {
+            length = +prompt("Nhập lại độ dài");
+        }
+        let arr = new Array(length);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = +prompt("Nhập phần tử thứ " + (i + 1));
+        }
+        alert(checkArray(arr));
+    </script>
+</body>
+
+</html>

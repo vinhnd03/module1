@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp hình tròn</title>
+</head>
+<body>
+    <script>
+        class Circle {
+            constructor(radius){
+                this.radius = radius;
+            }
+
+            getRadius(){
+                return this.radius;
+            }
+
+            getArea(){
+                return Math.PI * this.radius * this.radius;
+            }
+        }
+
+
+        let circle = new Circle(4);
+        alert(circle.getArea());
+    </script>
+</body>
+</html>

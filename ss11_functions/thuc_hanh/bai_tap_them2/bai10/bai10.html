@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 10</title>
+</head>
+
+<body>
+    <script>
+        function checkSimilarLetter(str1, str2) {
+            let arr1 = str1.trim().split('');
+            let arr2 = str2.trim().split('');
+            let count = 0;
+            for (let i = 0; i < arr1.length ; i++) {
+                for (let j = 0; j < arr2.length; j++) {
+                    if(arr1[i] == arr2[j]){
+                        arr1.splice(i, 1);
+                        arr2.splice(j, 1);
+                        count++;
+                        i--;
+                        break;
+                    }
+                }
+            }
+            return count;
+        }
+
+        let string1 = "aabcc";
+        let string2 = "adcaa";
+
+        alert(checkSimilarLetter(string1, string2));
+    </script>
+</body>
+
+</html>

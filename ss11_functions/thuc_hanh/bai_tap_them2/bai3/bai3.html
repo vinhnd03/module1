@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+
+<body>
+    <script>
+        function kiemTraTamGiac(x, y, z) {
+            if (x + y > z && x + z > y && z + y > x) {
+                if (x ** 2 + y ** 2 == z ** 2 || x ** 2 + z ** 2 == y ** 2 || z ** 2 + y ** 2 == x ** 2) {
+                    return "xyz là cạnh của một tam giác vuông.";
+                } else {
+                    return "xyz là một tam giác bình thường";
+                }
+            } else {
+                return "xyz không phải là cạnh của một tam giác";
+            }
+        }
+
+        let x = +prompt("Nhập x:");
+        let y = +prompt("Nhập y:");
+        let z = +prompt("Nhập z:");
+
+        if (x <= 0 || y <= 0 || z <= 0) {
+            alert("Độ dài không hợp lệ")
+        } else {
+            alert(kiemTraTamGiac(x, y, z));
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+    <!--  Bài 3 Nhập 1 mảng từ bàn phím với độ dài n-->
+    <!--  Hiện thị mảng sau khi thêm mới các phần tử-->
+    <!--  Kiểm tra mảng vừa nhập. Nếu  mảng mới nhập đã được sắp xếp ( tăng/giảm dần) thì hiện thị thông báo "OK",
+       nếu không thoả mãn thì hiện thị "NO"-->
+
+</head>
+<body>
+<script>
+    // let n = +prompt("Nhập độ dài của mảng: ");
+    // let array = [];
+    // while (n <= 0) {
+    //     n = prompt("Nhập lại độ dài của mảng: ");
+    // }
+    // for (let i = 0; i < n; i++) {
+    //     array[i] = prompt("Nhập giá trị phần tử thứ: " + i);
+    // }
+    // alert(array);
+
+    // function checkArray(arr) {
+    //     for (let i = 0; i < arr.length; i++) {
+    //         //so sánh 2 phần tử đẩu (0 và 1) xong trả về "OK" luôn
+            
+    //         if (arr[i] > arr[i + 1]) {
+    //             return "OK";
+    //         //cái này cũng thế
+    //         } else if (arr[i] < arr[i + 1]) {
+    //             return "OK";
+    //         }
+
+    //     }
+    //     return "NO";
+    // }
+
+    // alert(checkArray(array));
+
+    let inHoa = /[A-Z]/;
+    let inThuong = /[a-z]/;
+
+    let s = "a";
+
+    alert(inHoa.test(s));
+    alert(inThuong.test(s));
+</script>
+</body>
+</html>
+

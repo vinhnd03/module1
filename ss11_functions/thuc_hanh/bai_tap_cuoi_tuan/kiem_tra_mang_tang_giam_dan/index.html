@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Nhập 1 mảng từ bàn phím với độ dài n													
+            Hiện thị mảng sau khi thêm mới các phần tử													
+            Kiểm tra mảng vừa nhập. Nếu  mảng mới nhập đã được sắp xếp 
+            (tăng/giảm dần) thì hiện thị thông báo "OK", nếu không thoả mãn thì hiện thị "NO"
+        */
+
+        function checkArray(arr) {
+            //khai báo 2 biến tăng/giảm và có trường hợp trong mảng có 2 phần tử giống nhau khó thỏa mãn điều kiện
+            let countUp = 0;
+            let countDown = 0;
+            //lặp đến độ dài trừ 1 vì luôn so sánh với phần tử phía sau
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] <= arr[i + 1]) {
+                    countUp++;
+                }
+                if (arr[i] >= arr[i + 1]) {
+                    countDown++;
+                }
+            }
+            //return ở đây mới hợp lý
+            if (countUp == arr.length - 1 || countDown == arr.length - 1) {
+                return "OK";
+            } else {
+                return "NO";
+            }
+        }
+
+
+        let arr1 = [1, 2, 2, 4, 5, 6, 7];
+        let arr2 = [6, 5, 4, 4, 2, 1, 0];
+        let arr3 = [1, 2, 7, 5, 3, 6, 3];
+
+        alert(checkArray(arr1));
+        alert(checkArray(arr2));
+        alert(checkArray(arr3));
+    </script>
+</body>
+
+</html>

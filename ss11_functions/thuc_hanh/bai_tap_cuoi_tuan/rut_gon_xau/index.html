@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            . Rút gọn xâu: Cho một xâu S chỉ gồm các chữ cái in thường với độ dài tối đa 250 ký tự. 
+            Em hãy viết chương trình để tạo ra xâu SG từ xâu S bằng cách xóa các ký tự liên tiếp giống nhau
+             trong xâu S và chỉ để lại một kí tự đại diện trong đoạn đó.
+
+                VD: hhhhoooocccchhhhsssssiiiiiinnnnhhhhh   ->    hocsinh
+        */
+
+        function rutGonXau(str) {
+            let arr = str.trim().toLowerCase().split('');
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == arr[i + 1]) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+            return arr.join('');
+        }
+
+        let string = "hhhhooooccccsssssiiiiiinnnnhhhhh";
+        alert(rutGonXau(string));
+    </script>
+</body>
+
+</html>

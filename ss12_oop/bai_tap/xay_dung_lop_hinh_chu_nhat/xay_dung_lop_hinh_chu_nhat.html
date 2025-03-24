@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp hình chữ nhật</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1000%" height="1000%" style="border: 1px solid black;"></canvas>
+
+    <script>
+        class Rectengle {
+            constructor(height, width) {
+                this.height = height;
+                this.width = width;
+            }
+
+            getArea() {
+                return this.height * this.width;
+            }
+
+            getperimeter() {
+                return (this.height + this.width) * 2;
+            }
+        }
+
+        function drawRectangle() {
+            let ctx = document.getElementById('myCanvas').getContext("2d");
+            var height = 100;
+            var width = 50;
+            var rectangle = new Rectengle(height, width);
+            alert("Diện tích: " + rectangle.getArea());
+            alert("Chu vi: " + rectangle.getperimeter());
+            ctx.beginPath();
+            ctx.fillRect(500, 200, height, width);
+        }
+
+        drawRectangle();
+        
+    </script>
+</body>
+
+</html>

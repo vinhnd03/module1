@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        function checkArray(str) {
+            let array = str.toLowerCase().split('');
+            let resultArray = [];
+            let vowels = ["a", "u", "o", "e", "i"];
+            for (let i = 0; i < array.length; i++) {
+                let check = vowels.indexOf(array[i]);
+                if (check >= 0) {
+                    if (!resultArray.includes(vowels[check])) {
+                        resultArray.push(vowels[check]);
+                    }
+                }
+            }
+            return resultArray;
+        }
+
+        let str = prompt("Nhập một chuỗi:");
+        alert(checkArray(str));
+
+    </script>
+</body>
+
+</html>

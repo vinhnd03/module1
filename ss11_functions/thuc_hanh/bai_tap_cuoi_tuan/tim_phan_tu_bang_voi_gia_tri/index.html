@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        /*
+            Cho một dãy các số nguyên khác nhau sắp xếp theo thứ tự tăng dần. Viets chương trình
+            kiểm tra xem có  tồn tại phần tử nào mà giá trị của nó đúng bằng ví trị của nó.
+            Chú ý: Vị trí của phần tử được tính bằng đầu từ một
+        */
+
+        function check(array) {
+            let returnArr = [];
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === (i + 1)) {
+                    returnArr.push(array[i])
+
+                }
+            }
+            return returnArr;;
+        }
+
+
+        let array = [-10, -3, 3, 5, 7, 6];
+        alert(check(array));
+    </script>
+</body>
+
+</html>

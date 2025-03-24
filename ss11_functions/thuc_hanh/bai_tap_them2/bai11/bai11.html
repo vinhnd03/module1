@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 11</title>
+</head>
+
+<body>
+    <script>
+        function findInArray(array) {
+            let max = array[0]
+            let tempMax = array[1]
+            for (let i = 2; i < array.length; i++) {
+                if (array[i] > max) {
+                    tempMax = max;
+                    max = array[i];
+                    
+                }
+            }
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] == tempMax) {
+                    count++;
+                }
+            }
+
+            return [tempMax, count];
+        }
+
+        let array = [1, 2, 3, 4, 5, 4, 4];
+        alert(findInArray(array));
+    </script>
+</body>
+
+</html>

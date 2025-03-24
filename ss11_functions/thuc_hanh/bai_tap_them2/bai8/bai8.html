@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+</head>
+
+<body>
+    <script>
+        function formatString(str) {
+            let array = str.trim().toLowerCase().split(/\s+/);
+            for (let i = 0; i < array.length; i++) {
+                let tempArr = [];
+                tempArr = array[i].trim().split('');
+                tempArr[0] = tempArr[0].toUpperCase();
+                array[i] = tempArr.join('');
+            }
+            return array.join(' ');
+        }
+
+        let str = "nGuyeN    duC    viNh";
+        alert(formatString(str));
+    </script>
+</body>
+
+</html>
