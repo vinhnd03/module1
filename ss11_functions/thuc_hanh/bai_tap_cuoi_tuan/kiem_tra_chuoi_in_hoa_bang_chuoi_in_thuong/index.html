@@ -21,11 +21,20 @@
             for (let i = 0; i < arr.length; i++) {
                 if(arr[i] != " "){
                     if(arr[i].toUpperCase() == arr[i]){
-
+                        countUpper++;
+                    }else if(arr[i].toLowerCase() == arr[i]){
+                        countLower++;
                     }
                 }
             }
+            if(countLower === countUpper){
+                return true;
+            }
+            return false;
         }
+
+        let string = "HELloo";
+        alert(checkString(string));
     </script>
 </body>
 

@@ -17,6 +17,8 @@
             decrease() {
                 if (this.weight > 0) {
                     this.weight--;
+                }else{
+                    console("Hết rồi");
                 }
             }
             getWeight() {
@@ -25,8 +27,10 @@
 
             isEmpty() {
                 if (this.weight < 0) {
+                    console.log("Hết rồi")
                     return true;
                 }else {
+                    console.log("Vẫn còn")
                     return false;
                 }
             }
@@ -65,7 +69,7 @@
             }
 
             say(string) {
-                alert("string");
+                alert(string);
             }
 
             setName(name) {
@@ -87,15 +91,15 @@
         let apple1 = new Apple();
 
         adam.eat(apple1);
-        alert(apple1.weight);
-        alert(adam.weight);
+        console.log(apple1.weight);
+        console.log(adam.weight);
 
-        alert(adam.checkApple(apple1));
+        console.log(adam.checkApple(apple1));
 
         eva.eat(apple1);
-        alert(eva.weight);
+        console.log(eva.weight);
 
-        alert(apple1.weight);
+        console.log(apple1.weight);
     </script>
 </body>
 

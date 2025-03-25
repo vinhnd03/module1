@@ -13,77 +13,82 @@
 
             constructor(battery) {
                 this.battery = battery;
-
+                this.trangThai = false;
+                this.vungNhoSoanTin = "";
                 this.sentMessages = [];
 
                 this.receivedMessages = [];
 
-                this.status = false;
             }
+
+            getStatus() {
+                return this.trangThai;
+            }
+
+            batDienThoai() {
+                this.trangThai = !this.trangThai;
+            }
+
+
 
             getBattery() {
                 return this.battery;
             }
 
-            charge(battery) {
-                if (battery > 0 && battery <= 100) {
-                    this.battery = battery;
+            sacPin(battery) {
+                if (battery > 10) {
+                    this.battery = 100;
                 } else {
-                    this.battery = 1;
+                    console.log("dien thoai con pin");
                 }
             }
 
-            useMobile() {
-                this.battery -= 1;
+            soanTin(text) {
+                this.vungNhoSoanTin = text;
             }
 
-            getSentMessages() {
-                this.useMobile()
-                return this.sentMessages;
+            giamPin() {
+                if (this.battery > 10) {
+                    this.battery--;
+                } else {
+                    console.log("Sap het pin")
+                }
 
             }
 
-            getReceviedMessages() {
-                this.useMobile()
-
-
-                return this.receivedMessages;
+            sent(dienThoai, text) {
+                this.soanTin(text)
+                dienThoai.receivedMessages.push(this.vungNhoSoanTin);
+                this.sentMessages.push(this.vungNhoSoanTin);
+                this.giamPin();
             }
 
-            send(message) {
-                this.useMobile()
-
-                // mobile.receive(message);
-                this.sentMessages.push(message);
-                return message;
+            receive(text) {
+                this.receivedMessages.push(text)
             }
 
-            receive(message) {
-                this.useMobile()
+            xemTinNhanDaGui() {
+                for (let i = 0; i < this.sentMessages.length; i++) {
+                    console.log(i + " " + this.sentMessages[i]);
+                }
+                this.giamPin();
+            }
 
-                this.receivedMessages.push(message);
-                return message;
+            xemTinNhanDaNhan() {
+                for (let i = 0; i < this.receivedMessages.length; i++) {
+                    console.log(i + " " + this.receivedMessages[i]);
+                }
+                this.giamPin();
             }
         }
 
-        let iphone = new Mobile(1);
-        iphone.charge(80);
+        let iphone = new Mobile(20);
         let oppo = new Mobile(100);
 
-
-        alert(oppo.receive(iphone.send("Hello")));
-
-
-
-        let message = iphone.send("Hi");
-        oppo.receive(message);
-
-        alert(oppo.getReceviedMessages());
-
-
-        alert(oppo.battery);
-        // alert(oppo.receive(iphone.send("lo")));
-
+        iphone.sent(oppo, "hello");
+        oppo.xemTinNhanDaNhan();
+        iphone.xemTinNhanDaGui();
+        console.log(iphone .getBattery());
 
     </script>
 </body>

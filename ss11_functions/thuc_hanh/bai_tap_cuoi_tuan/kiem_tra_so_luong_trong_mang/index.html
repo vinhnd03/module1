@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Nhập 1 mảng từ bàn phím với độ dài n													
+            Hiện thị mảng sau khi thêm mới các phần tử													
+            Đếm số lượng số lớp nhất trong mảng. 
+            Ví dụ [1,3,6,3,6,6,6] => số lượng số lớn nhất trong mảng là 4 ( vì 6 là số lớn nhất và xuất hiện 4 lần)										
+        */
+
+        function checkArray(array) {
+            let tempArr = array;
+            let arr = [];
+            let loop = true;
+            while (loop) {
+                arr = [];
+                for (let i = 0; i < tempArr.length; i++) {
+                    if (!arr.includes(tempArr[i])) {
+                        arr.push(tempArr[i]);
+                        tempArr.splice(i, 1);
+                        i--;
+                    }
+                }
+                if (arr.length == 1) {
+                    loop = false;
+                    return arr[0];
+                }
+            }
+        }
+
+        let array = [1, 3, 6, 3, 6, 6, 6, 1, 2, 2, 2, 2, 2, 2, 2];
+        alert(checkArray(array));
+    </script>
+</body>
+
+</html>

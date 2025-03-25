@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng mô phỏng công tắc đèn</title>
+</head>
+<body>
+    <script>
+        class SwitchButton{
+            constructor(){
+                this.status = false;
+                this.lamp = {};
+            }
+
+            connectToLamp(lamp){
+                this.lamp = lamp;
+            }
+
+            switchOff(){  
+                this.status = false;
+                if(!this.lamp){
+                    console.log("Chưa kết nối được");
+                }
+                this.lamp.turnOff();
+            }
+
+            switchOn(){
+                this.status = true;
+                this.lamp.turnOn();
+            }
+
+
+        }
+
+        class ElectricLamp{
+            constructor(){
+                this.status = false;
+            }
+
+            turnOff(){
+                this.status = false;
+                console.log("Đang tắt");
+            }
+
+            turnOn(){
+                this.status = true;
+                console.log("Đang bật");
+            }
+        }
+
+        let electricLamp1 = new ElectricLamp();
+        let switchButton1 = new SwitchButton();
+
+        switchButton1.connectToLamp(electricLamp1);
+        switchButton1.switchOn();
+
+    </script>
+</body>
+</html>
