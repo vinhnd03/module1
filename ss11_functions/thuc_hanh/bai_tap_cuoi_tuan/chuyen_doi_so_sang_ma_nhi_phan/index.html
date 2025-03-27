@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Viết 1 hàm truyền vào 1 tham số (với tham dạng số), (changeBinary(num))
+            Hàm trả về chuỗi là số nhị phân của tham số truyền vào
+            Ví dụ: changeBinary(2) => "10"
+            Ví dụ: changeBinary(10) => "1010"
+        */
+
+        function convert(num) {
+            let loop = true;
+            let returnArr = [];
+            let n = num;
+            while (loop) {
+                if (n % 2 == 0) {
+                    returnArr.unshift(0);
+                } else {
+                    returnArr.unshift(1);
+                }
+                n = Math.floor(n / 2);
+                if (n < 1) {
+                    loop = false;
+                }
+            }
+            return returnArr.join(' ');
+        }
+
+        alert(convert(10));
+    </script>
+    
+</body>
+
+</html>

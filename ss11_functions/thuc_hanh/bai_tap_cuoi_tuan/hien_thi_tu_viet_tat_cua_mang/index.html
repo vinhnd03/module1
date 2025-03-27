@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Viết 1 hàm truyền vào 1 tham số (với tham số là một chuỗi), (checkString(str))											
+            Hàm trả về Từ viết tắt của chuỗi										
+            Nếu chuỗi chỉ có 1 từ thì trả về từ đó . Ví dụ   : "Hello" => ""Hello"										
+            Nếu chuỗi từ 2 từ trở lên thì trả về chuỗi gồm các ký tự đầu tiên của một từ. Ví dụ:" Object Oriented Programming" => OOP											
+        */
+
+        function vietTat(string) {
+            if (string.trim().includes(" ")) {
+                let arr = string.trim().split(' ');
+                for (let i = 0; i < arr.length; i++) {
+                    let tempArr = arr[i].split('');
+                    let firstChar = tempArr[0];
+                    arr[i] = firstChar.toUpperCase();
+                }
+                return arr.join('');
+            } else {
+                return string.trim();
+            }
+        }
+
+        let str1 = "hello";
+        let str2 = "object oriented programming";
+        alert(vietTat(str1));
+        alert(vietTat(str2));
+    </script>
+</body>
+
+</html>

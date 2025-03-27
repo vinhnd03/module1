@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Nhập 1 mảng từ bàn phím với độ dài n										
+            Hiện thị mảng sau khi thêm mới các phần tử										
+            Hiện thị các số chính phương có trong mảng
+            ( Số chính phương là các số ví dụ 1,4,9,16,25,36,49……)										
+        */
+
+        function checkArray(array) {
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (Math.sqrt(array[i]) % 1 == 0) {
+                    count++;
+                }
+            }
+
+            if (count === array.length) {
+                return "la mang so chinh phuong";
+            } else {
+                return "khong phai la mang so chinh phuong";
+            }
+        }
+
+
+        let arr = [1, 4, 9, 16, 25, 36, 49];
+        alert(checkArray(arr));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều</title>
+</head>
+
+<body>
+    <script>
+        function findInArray(array) {
+            let min = array[0][0];
+            let max = min;
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array[i].length; j++) {
+                    if (max < arr[i][j]) {
+                        max = arr[i][j];
+                    }
+                    if (min > arr[i][j]) {
+                        min = arr[i][j];
+                    }
+                }
+            }
+            return [max, min];
+        }
+
+
+        let arr = [[1, 2, 3, 4, 55], [6, 7, 8, 0, 10], [11, 12, 13, 14, 15]];
+        alert(`Giá trị lớn nhất trong mảng là: ${findInArray(arr)[0]} 
+        \nGiá trị bé nhất trong mảng là: ${findInArray(arr)[1]}`);
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Bài 3</title>
@@ -9,43 +10,58 @@
        nếu không thoả mãn thì hiện thị "NO"-->
 
 </head>
+
 <body>
-<script>
-    // let n = +prompt("Nhập độ dài của mảng: ");
-    // let array = [];
-    // while (n <= 0) {
-    //     n = prompt("Nhập lại độ dài của mảng: ");
-    // }
-    // for (let i = 0; i < n; i++) {
-    //     array[i] = prompt("Nhập giá trị phần tử thứ: " + i);
-    // }
-    // alert(array);
+    <script>
+        // let n = +prompt("Nhập độ dài của mảng: ");
+        // let array = [];
+        // while (n <= 0) {
+        //     n = prompt("Nhập lại độ dài của mảng: ");
+        // }
+        // for (let i = 0; i < n; i++) {
+        //     array[i] = prompt("Nhập giá trị phần tử thứ: " + i);
+        // }
+        // alert(array);
 
-    // function checkArray(arr) {
-    //     for (let i = 0; i < arr.length; i++) {
-    //         //so sánh 2 phần tử đẩu (0 và 1) xong trả về "OK" luôn
-            
-    //         if (arr[i] > arr[i + 1]) {
-    //             return "OK";
-    //         //cái này cũng thế
-    //         } else if (arr[i] < arr[i + 1]) {
-    //             return "OK";
-    //         }
+        // function checkArray(arr) {
+        //     for (let i = 0; i < arr.length; i++) {
+        //         //so sánh 2 phần tử đẩu (0 và 1) xong trả về "OK" luôn
 
-    //     }
-    //     return "NO";
-    // }
+        //         if (arr[i] > arr[i + 1]) {
+        //             return "OK";
+        //         //cái này cũng thế
+        //         } else if (arr[i] < arr[i + 1]) {
+        //             return "OK";
+        //         }
 
-    // alert(checkArray(array));
+        //     }
+        //     return "NO";
+        // }
 
-    let inHoa = /[A-Z]/;
-    let inThuong = /[a-z]/;
+        // alert(checkArray(array));
 
-    let s = "a";
+        function maxMinAvg(arr) {
+            //your code here 
+            let arrnew = [];
+            let min = 0;
+            let max = 0;
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (min > arr[i]) {
+                    min = arr[i];
+                }
+                if (max < arr[i]) {
+                    max = arr[i];
+                }
+                sum += arr[i];
+            }
 
-    alert(inHoa.test(s));
-    alert(inThuong.test(s));
-</script>
+            arrnew.push(max, min, sum / arr.length)
+            return arrnew;
+        }
+
+        alert(maxMinAvg([1,5,10,-2]))
+    </script>
 </body>
-</html>
 
+</html>

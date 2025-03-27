@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra định dạng Email</title>
+</head>
+
+<body>
+    <script>
+        function checkEmailFormat(string) {
+            //kiểm tra độ dài
+            if(string.length < 6){
+                return false;
+            }
+
+            //kiểm tra có chứa (.) và @
+            if (!string.includes('@') || !string.includes('.')) {
+                return false;
+            }
+
+            //kiểm tra khoảng trống
+            var tempArr1 = string.split('');
+            for(let i = 1; i < tempArr1.length; i++){
+                if(tempArr1[i] == ' '){
+                    return false;
+                }
+            }
+
+            //tách chuỗi từ @
+            var tempArr = string.trim().split('@');
+            if (tempArr.length > 2) {
+                return false;
+            }
+
+            //kiểm tra phần sau @
+            let tempArr2 = tempArr[tempArr.length - 1].split('.');
+            if(tempArr2.length < 2){
+                return false;
+            }
+            for(let i = 0; i < tempArr2.length; i++){
+                if(tempArr2[i].length < 3 || tempArr2[i].length > 10){
+                    return false;
+                }
+            }
+
+            //kiểm tra phần trước @
+            let tempArr3 = tempArr[0].split('');
+            if(tempArr3[0] >=  'a' && tempArr3[0] <= 'z' || tempArr3[0] >= 'A' && tempArr3[0] <= 'Z'){
+                return true;
+            }
+            return false;
+        }
+
+        let email = 'ducvinh@gmail.com';
+        let wrongEmail2 = 'duc vinh@gmail.com';
+
+        alert(checkEmailFormat(email));
+        alert(checkEmailFormat(wrongEmail2));
+    </script>
+</body>
+
+</html>

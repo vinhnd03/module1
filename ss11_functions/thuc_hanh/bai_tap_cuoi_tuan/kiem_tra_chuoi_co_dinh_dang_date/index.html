@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Viết hàm truyền vào tham số là một chuỗi.. checkDate(dateString) 										
+        Kiểm tra xem chuối nhập vào dateString có phải là định dạng của ngày tháng năm hay không ( dd/mm/yyyy)										
+        Nếu đúng return true, sai return false										
+        */
+
+        //dd/mm/yyyy
+        function checkString(string) {
+            if (string.length != 8) {
+                return false;
+            }
+            let array = [];
+            // = string.trim().split('');
+            array.push(string.slice(0, 2));
+            array.push(string.slice(2, 4));
+            array.push(string.slice(4, 8));
+
+            
+            if(array[0] < 0 || array[0] > 31){
+                return false;
+            }              
+            if(array[1] < 0 || array[1] > 12){
+                return false;
+            }
+            if(array[2] < 0){
+                return false;
+            }
+            return true;
+
+        }
+
+        let str = "12052003";
+        alert(checkString(str));
+    </script>
+</body>
+
+</html>

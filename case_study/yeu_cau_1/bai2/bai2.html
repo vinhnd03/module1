@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương trình đọc số thành chuỗi</title>
+</head>
+
+<body>
+    <script>
+        function convert(numb) {
+            let tempArr = (numb + '').split('');
+            let numArr = [];
+            let strArr = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+            for (let i = 0; i < tempArr.length; i++) {
+
+                numArr.push(strArr[tempArr[i]]);
+            }
+            if (tempArr.length == 3) {
+                numArr.splice(tempArr.length - 2, 0, "trăm");
+                if (tempArr[tempArr.length - 1] != 0 || tempArr[tempArr.length - 2] != 0) {
+                    if (tempArr[tempArr.length - 2] == 0) {
+                        numArr.splice(tempArr.length - 1, 1, "lẻ");
+                    } else if (tempArr[tempArr.length - 1] == 0) {
+                        numArr.splice(tempArr.length, 1, "mươi");
+                    } else if (tempArr[tempArr.length - 2] == 1) {
+                        numArr.splice(tempArr.length - 1, 1, "mười");
+                    } else {
+                        numArr.splice(tempArr.length, 0, "mươi");
+                    }
+                } else {
+                    numArr.splice(tempArr.length - 1, 2);
+                }
+
+            } else if (tempArr.length == 2) {
+                if (tempArr[tempArr.length - 1] == 0 && tempArr[tempArr.length - 2] == 1) {
+                    numArr = ["mười"];
+                } else {
+                    if (tempArr[tempArr.length - 1] == 0) {
+                        numArr.splice(tempArr.length - 1, 1, "mươi");
+                    } else if (tempArr[tempArr.length - 2] == 1) {
+                        numArr.splice(tempArr.length - 2, 1, "mười");
+                    } else {
+                        numArr.splice(tempArr.length - 1, 0, "mươi");
+                    }
+                }
+            }
+
+            return numArr.join(' ');
+        }
+
+        let number = +prompt("Nhập một chuỗi số (0-999)");
+        while (isNaN(number) || number <= 0 || number > 999) {
+            number = +prompt("Nhập lại một chuỗi số (0-999)")
+        }
+        alert(convert(number));
+    </script>
+</body>
+
+</html>

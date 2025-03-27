@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xếp hạng hệ thống khách hàng</title>
+</head>
+
+<body>
+    <script>
+        function ranking(money) {
+            let rank = "";
+            let discount = 0;
+            let freeShipping = false;
+            let gift = false;
+            if (money >= 1000) {
+                rank = "Platium";
+                discount = 20;
+                freeShipping = true;
+                gift = true;
+            } else if (money >= 500) {
+                rank = "Gold";
+                discount = 10;
+                freeShipping = true;
+            } else if (money >= 100) {
+                rank = "Silver";
+                discount = 5;
+            } else {
+                rank = "Bronze";
+            }
+
+            return { rank, discount, freeShipping, gift };
+        }
+
+        let money = +prompt("Nhập số tiền đã chi tiêu ($): ");
+        let customer = ranking(money);
+
+        let info = "";
+        info += `Bạn đang xếp hạng là: ${customer.rank}\n`;
+        info += `Đang được giảm giá: ${customer.discount}%\n`;
+        info += `Được miễn phí giao hàng: ${customer.freeShipping ? 'có' : 'không'}\n`;
+        info += `Được nhận phần quà: ${customer.gift ? 'có' : 'không'}`;
+        alert(info);
+    </script>
+</body>
+
+</html>

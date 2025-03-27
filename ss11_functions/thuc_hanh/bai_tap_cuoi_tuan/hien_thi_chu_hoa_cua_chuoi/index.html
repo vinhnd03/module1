@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Viết 1 hàm truyền vào 1 tham số (với tham số là một chuỗi), (checkString(str))							
+            Hàm trả về  một chuỗi là tất cả các ký tự in Hoa có trong chuỗi							
+            Ví dụ: Hello CoDeGym => HCDG							
+        */
+
+
+        function checkString(str) {
+            let arr = str.trim().split('');
+            let returnArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] == " "){
+                    arr.splice(i, 1);
+                    // i--;
+                }
+                if (arr[i] === arr[i].toUpperCase()) {
+                    returnArr.push(arr[i]);
+                }
+            }
+            return returnArr;
+        }
+
+        let string = "HellO WorlD";
+        alert(checkString(string));
+    </script>
+</body>
+
+</html>

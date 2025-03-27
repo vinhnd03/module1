@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Nhập 1 mảng từ bàn phím với độ dài n														
+            Hiện thị mảng sau khi thêm mới các phần tử														
+           Đếm số lượng số có giá trị bằng giá trinh trung bình của mảng. 
+            Ví dụ [1,2,2,3,3,5,4,4] => số lượng số bằng với giá trị trung bình của các phần tử trong mảng là 2 
+            ( vì giá trị trung bình các phần tử trong mảng là 3=> số 3 xuất hiện 2 lần)"														
+        */
+
+        function checkArray(array){
+            let trungBinhCong = eval(array.join('+'))/array.length;
+            if(!array.includes(trungBinhCong)){
+                return -1;
+            }
+            let count = 0;
+            for(let i = 0; i < array.length; i++){
+                if(array[i] == trungBinhCong){
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        let arr = [1,2,3,4,5];
+        alert(checkArray(arr));
+    </script>
+</body>
+</html>

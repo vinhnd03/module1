@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isFibonacci(num) {
+            let n1 = 0;
+            let n2 = 1;
+            let n = 0;
+            let arr = [n1, n2];
+            while (n <= num) {
+                n = n1 + n2;
+                arr.push(n);
+                n1 = n2;
+                n2 = n;
+            }
+
+            return arr.includes(num);
+        }
+
+        function checkArray(array) {
+            for (let i = 0; i < array.length; i++) {
+                if (!isFibonacci(array[i])) {
+                    return "NO";
+                }
+            }
+            return "OK";
+        }
+
+        let fib = [0, 1, 1, 2, 3, 5, 8, 13];
+
+        alert(checkArray(fib));
+        // isFibonacci(10);
+    </script>
+</body>
+
+</html>

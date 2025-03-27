@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In số thành chữ</title>
+</head>
+
+<body>
+    <script>
+        function convert(number) {
+            let tempArr = ('' + number).split('');
+            let strArr = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+            let returnArr = [];
+            for (let i = 0; i < tempArr.length; i++) {
+                returnArr.push(strArr[tempArr[i]]);
+            }
+
+            return returnArr.join(' ');
+        }
+
+        let num = 12340;
+        alert(convert(num));
+
+    </script>
+</body>
+
+</html>

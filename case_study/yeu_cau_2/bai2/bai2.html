@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm phần tử xuất hiện ở mảng B những không xuất hiện ở mảng A</title>
+</head>
+
+<body>
+    <script>
+        function findMissingValue(arr1, arr2) {
+            let arrA = arr1;
+            let arrB = arr2;
+            for (let i = 0; i < arrA.length; i++) {
+                for (let j = 0; j < arrB.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        arr1.splice(i, 1);
+                        arr2.splice(j, 1);
+                        i--;
+                    }
+                }
+            }
+            return arrB;
+        }
+
+        let arrayA = [7, 2, 5, 3, 5, 3];
+        let arrayB = [7, 2, 5, 4, 6, 3, 5, 3];
+
+        alert(findMissingValue(arrayA, arrayB));
+
+
+    </script>
+</body>
+
+</html>

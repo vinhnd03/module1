@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm số nguyên tố trong mảng đa chiều</title>
+</head>
+
+<body>
+    <script>
+        function checkArr(array) {
+            let count = 0
+            let check = true;
+            let rArray = []
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array[i].length; j++) {
+                    if (array[i][j] < 2) {
+                        check = false;
+                    }
+                    for (let k = 2; k < array[i][j]; k++) {
+                        if (array[i][j] % k == 0) {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check) {
+                        rArray.push(array[i][j]);
+                        count++;
+                    }
+                    check = true;
+                }
+            }
+            // alert(rArray);
+            return count;
+        }
+
+        let arr = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]];
+        alert(checkArr(arr));
+    </script>
+</body>
+
+</html>

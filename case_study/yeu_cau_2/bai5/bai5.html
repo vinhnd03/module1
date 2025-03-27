@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu đồ uống</title>
+</head>
+
+<body>
+    <script>
+
+        function display() {
+            let sum = 0;
+            let choose = 0;
+            let price = 0;
+            do {
+                choose = +prompt(
+                    `================MENU=================
+                \n1> Cafe:   10K            |  4> Nước ép cà chua:   26K
+                \n2> Cam vắt:   20K         |  5> Nước lọc:  7K
+                \n3> Nước ép cà rốt:  22K   |  6> Nước dừa:  15K
+                \n7> Thanh toán
+                \n============[ Tổng tiền: ${sum} K]=============
+                `                  
+            );
+                switch (choose) {
+                    case 1:
+                        price = 10;
+                        sum += order(price);
+                        break;
+                    case 2:
+                        price = 20;
+                        sum += order(price);
+                        break;
+                    case 3:
+                        price = 22;
+                        sum += order(price);
+                        break;
+                    case 4:
+                        price = 26;
+                        sum += order(price);
+                        break;
+                    case 5:
+                        price = 7;
+                        sum += order(price);
+                        break;
+                    case 6:
+                        price = 15;
+                        sum += order(price);
+                        break;
+                    case 7:
+                        alert("Tổng tiền thanh toán là: " + sum + "K")
+                        break;
+                }
+                console.log(order);
+            } while (choose != 7);
+        }
+        display();
+        function order(price){
+            let quantity = +prompt("Xin mời bạn nhập số lượng (1 ly giá " +   price + "K): ");
+            return quantity * price;
+        }
+
+    </script>
+</body>
+
+</html>

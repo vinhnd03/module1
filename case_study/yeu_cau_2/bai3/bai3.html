@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm phân số lớn nhất trong hai mảng</title>
+</head>
+
+<body>
+    <script>
+        function findMaxFraction(arr1, arr2) {
+            let max = [0, arr1[0] / arr2[0]];
+            for (let i = 1; i < arr1.length; i++) {
+                if (max[1] < (arr1[i] / arr2[i])) {
+                    max.splice(0, 2, i, arr1[i] / arr2[i]);
+                }
+            }
+            return max[0];
+        }
+
+        let array1 = [5, 2, 5];
+        let array2 = [6, 3, 4];
+
+        alert(findMaxFraction(array1, array2));
+
+    </script>
+</body>
+
+</html>
