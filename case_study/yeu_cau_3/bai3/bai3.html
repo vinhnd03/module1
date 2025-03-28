@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm các chuỗi có cùng ký tự với nhau trong mảng</title>
+</head>
+
+<body>
+    <script>
+        function sortString(arr) {
+            let array = arr;
+            //tách chuỗi trong mảnh thành một mảng (mảng 2 chiều)
+            for (let i = 0; i < array.length; i++) {
+                array[i] = array[i].split('');
+            }
+            // alert(array);
+
+            //[ [e, a, t] , [t, e, a] ];
+
+            let tempArr1 = [];
+            for (let i = 0; i < array.length; i++) {
+                // let temp1 = array[i].sort();
+                // let temp2 = array[i + 1].sort();
+
+                if (!tempArr1.includes(array[i])) {
+                    tempArr1.push(array[i]);
+                } else {
+                    for (let j = 0; j < tempArr1.length; j++) {
+                        if (tempArr1[j][0].sort() == array[i].sort()) {
+                            tempArr1[j].push(array[i]);
+                        }
+                    }
+                }
+
+                // for (let i = 0; i < tempArr1.length; i++) {
+                //     tempArr1[i] = tempArr1[i].join('');
+                // }
+
+            }
+
+            return tempArr1[1];
+        }
+        let array1 = ["eat", "tea", "tan", "ate", "nat", "bat"];
+        let array2 = ["hello", "world", "dlrow", "ehllo"];
+        alert(sortString(array1));
+    </script>
+</body>
+
+</html>

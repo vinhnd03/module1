@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+
+<body>
+    <script>
+        function isFibonacciNumber(num) {
+            let n1 = 0;
+            let n2 = 1;
+            let n = 0;
+            let tempArr = [];
+            while (n <= num) {
+                n = n1 + n2;
+                n1 = n2;
+                n2 = n;
+                tempArr.push(n);
+            }
+            if (tempArr.includes(num)) {
+                return true;
+            }
+            return false;
+        }
+
+        function findFibonacciNumber(array) {
+            let fiboArray = [];
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] == 0 || array[i] == 1) {
+                    fiboArray.push(array[i]);
+                } else {
+                    if (isFibonacciNumber(array[i])) {
+                        fiboArray.push(array[i]);
+                    }
+                }
+            }
+
+            let count = 0
+            for (let i = 0; i < fiboArray.length - 1; i++) {
+                for (let j = 0; j < fiboArray.length - 1 - i; j++) {
+                    if (fiboArray[j] > fiboArray[j + 1]) {
+                        let temp = fiboArray[j]
+                        fiboArray[j] = fiboArray[j + 1];
+                        fiboArray[j + 1] = temp;
+                    }
+                }
+
+
+
+            }
+            return fiboArray;
+        }
+        //1,5,13,8,0,5,1 
+        let array = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+        alert(findFibonacciNumber(array));
+    </script>
+</body>
+
+</html>

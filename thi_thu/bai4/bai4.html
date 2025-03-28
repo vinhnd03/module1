@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quản lý sinh viên</title>
+    </head>
+
+    <body>
+
+        <div id="bang"></div>
+
+        <script>
+
+            class Computer {
+                constructor(id, name, brand, price) {
+                    this.id = id;
+                    this.name = name;
+                    this.brand = brand;
+                    this.price = price;
+                }
+            }
+
+            let computer1 = new Computer(1, "Máy tính 1", "MSI", 12000000);
+            let computer2 = new Computer(2, "Máy tính 2", "DELL", 10000000);
+            let computer3 = new Computer(3, "Máy tính 3", "ASUS", 22000000);
+            let computer4 = new Computer(4, "Máy tính 4", "MAC", 15000000);
+            let computer5 = new Computer(5, "Máy tính 5", "DELL", 17000000);
+            let computerArray = [];
+            computerArray.push(computer1, computer2, computer3, computer4, computer5);
+            let isSort = false;
+
+            display();
+
+
+            function add() {
+                let name = document.getElementById('name').value;
+                let brand = document.getElementById('brand').value;
+                let price = document.getElementById('price').value;
+
+                if (name == '' || brand == '' || price == 0) {
+                    alert("Vui lòng nhập đầy đủ thông tin");
+                } else {
+                    let newComputer = new Computer(computerArray.length + 1, name, brand, price);
+                    if (isSort) {
+                        for (let i = 0; i < computerArray.length - 1; i++) {
+                            if (computerArray[i].price >= newComputer.price) {
+                                computerArray.splice(i, 0, newComputer);
+                                break;
+                            }
+                        }
+                    } else {
+                        computerArray.push(newComputer);
+                    }
+                }
+
+                display();
+            }
+
+            function sort() {
+                for (let i = 0; i < computerArray.length - 1; i++) {
+                    for (let j = 0; j < computerArray.length - 1 - i; j++) {
+                        if (computerArray[j].price > computerArray[j + 1].price) {
+                            let temp = computerArray[j];
+                            computerArray[j] = computerArray[j + 1];
+                            computerArray[j + 1] = temp;
+                        }
+                    }
+                }
+                isSort = true;
+                display();
+
+            }
+
+            function reset() {
+                document.getElementById("name").value = "";
+                document.getElementById("brand").value = "";
+                document.getElementById("price").value = "";
+            }
+
+            function display() {
+                let tableStr = "";
+                tableStr += `
+                 <table>
+                    
+                    <tr>
+                        <td><span>Tên:</span></td>
+                        <td><input id="name" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Hãng:</span></td>
+                        <td><input id="brand" type="text"></td>
+                    </td>
+                    <tr>
+                        <td><span>Giá:</span></td>
+                        <td><input id="price" type="number"></td>
+                    </td>
+                    <tr>
+                        <th colspan="2">
+                            <input type="button" id="button" value="Thêm" onclick="add()">
+                            <input type="button" id="reset" value="Hủy" onclick="reset()">
+                        </th>
+                    </tr>
+                </table>`
+                tableStr += `<hr>`;
+                tableStr += '<table border="1" style="">';
+                tableStr += `<tr>`;
+                tableStr += `<th>ID</th>`
+                tableStr += `<th>Tên máy tính</th>`
+                tableStr += `<th>Hãng SX</th>`
+                tableStr += `<th>Giá bán</th>`
+                tableStr += `</tr>`;
+
+                for (let i = 0; i < computerArray.length; i++) {
+                    tableStr += `<tr>`;
+                    tableStr += `<td>${computerArray[i].id}</td>`;
+                    tableStr += `<td>${computerArray[i].name}</td>`;
+                    tableStr += `<td>${computerArray[i].brand}</td>`;
+                    tableStr += `<td>${computerArray[i].price}</td>`;
+                    tableStr += `</tr>`;
+                }
+
+                tableStr += ` </table>`;
+                tableStr += `<button type="button" onclick="sort()">Sắp xếp</button>`;
+
+                document.getElementById("bang").innerHTML = tableStr;
+            }
+
+
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>

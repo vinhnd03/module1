@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <script>
+        function sumArray(arr) {
+            let arr1 = [];
+            let arr2 = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i == 0 || i % 2 == 0) {
+                    arr1.push(arr[i]);
+                } else if (i % 2 != 0) {
+                    arr2.push(arr[i]);
+                }
+            }
+            return eval(arr1.join('+')) - eval(arr2.join('+'));
+        }
+
+        let n = 0;
+        do {
+            n = +prompt("Nhập số lượng phần tử trong mảng");
+        } while (n < 1 || n > 50)
+
+        let array = new Array(n);
+        for (let i = 0; i < array.length; i++) {
+            array[i] = +prompt("Nhập phần từ thứ " + i);
+        }
+        alert(array);
+
+        alert(sumArray(array));
+
+    </script>
+</body>
+
+</html>

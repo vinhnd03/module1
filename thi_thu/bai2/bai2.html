@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        function countChar(str) {
+            let array = str.trim().split('');
+            let countLower = 0;
+            let countUpper = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] != ' ') {
+                    if (array[i] == array[i].toLowerCase()) {
+                        countLower++;
+                    } else if (array[i] == array[i].toUpperCase()) {
+                        countUpper++;
+                    }
+                }
+            }
+            return [countUpper, countLower];
+        }
+
+        let str = prompt('Nhập một chuỗi ký tự: ');
+
+        alert(countChar(str));
+
+    </script>
+</body>
+
+</html>
