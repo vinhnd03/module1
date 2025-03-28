@@ -48,13 +48,21 @@
                     }
                 }
 
-
-
             }
             return fiboArray;
         }
         //1,5,13,8,0,5,1 
-        let array = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+        let n = 0;
+        do {
+            n = +prompt("Nhập số lượng phần tử trong mảng");
+        } while (n < 1 || n > 50)
+
+        let array = new Array(n);
+        for (let i = 0; i < array.length; i++) {
+            array[i] = +prompt("Nhập phần từ thứ " + i);
+        }
+        alert(array);
+        
         alert(findFibonacciNumber(array));
     </script>
 </body>
