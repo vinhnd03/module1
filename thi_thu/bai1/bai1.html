@@ -25,11 +25,13 @@
         let n = 0;
         do {
             n = +prompt("Nhập số lượng phần tử trong mảng");
-        } while (n < 1 || n > 50)
+        } while (n < 1 || n > 50 || isNaN(n))
 
         let array = new Array(n);
         for (let i = 0; i < array.length; i++) {
-            array[i] = +prompt("Nhập phần từ thứ " + i);
+            do {
+                array[i] = +prompt("Nhập phần từ thứ " + i);
+            } while (isNaN(array[i]));
         }
         alert(array);
 

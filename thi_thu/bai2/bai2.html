@@ -15,9 +15,16 @@
             let countUpper = 0;
             for (let i = 0; i < array.length; i++) {
                 if (array[i] != ' ') {
-                    if (array[i] == array[i].toLowerCase()) {
+                    //sai
+                    // if (array[i] == array[i].toLowerCase()) {
+                    //     countLower++;
+                    // } else if (array[i] == array[i].toUpperCase()) {
+                    //     countUpper++;
+                    // }
+
+                    if(array[i] >= 'a' && array[i] <= 'z'){
                         countLower++;
-                    } else if (array[i] == array[i].toUpperCase()) {
+                    } else if(array[i] >= 'A' && array[i] <= 'Z'){
                         countUpper++;
                     }
                 }

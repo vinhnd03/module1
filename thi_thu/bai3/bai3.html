@@ -38,17 +38,20 @@
                 }
             }
 
-            let count = 0
-            for (let i = 0; i < fiboArray.length - 1; i++) {
-                for (let j = 0; j < fiboArray.length - 1 - i; j++) {
-                    if (fiboArray[j] > fiboArray[j + 1]) {
-                        let temp = fiboArray[j]
-                        fiboArray[j] = fiboArray[j + 1];
-                        fiboArray[j + 1] = temp;
-                    }
-                }
+            // for (let i = 0; i < fiboArray.length - 1; i++) {
+            //     for (let j = 0; j < fiboArray.length - 1 - i; j++) {
+            //         if (fiboArray[j] > fiboArray[j + 1]) {
+            //             let temp = fiboArray[j]
+            //             fiboArray[j] = fiboArray[j + 1];
+            //             fiboArray[j + 1] = temp;
+            //         }
+            //     }
+            // }
 
-            }
+            fiboArray.sort(function (a, b) {
+                return a - b;
+            })
+
             return fiboArray;
         }
         //1,5,13,8,0,5,1 
@@ -62,7 +65,7 @@
             array[i] = +prompt("Nhập phần từ thứ " + i);
         }
         alert(array);
-        
+
         alert(findFibonacciNumber(array));
     </script>
 </body>
