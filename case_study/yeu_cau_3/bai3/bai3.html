@@ -10,29 +10,29 @@
 <body>
     <script>
         function sortString(arr) {
-            let array = arr.map(str => str.split('')); // Chuyển mỗi chuỗi thành mảng ký tự
-            let grouped = [];
+            // Tạo một object để lưu các nhóm từ
+            let groups = {};
+            for (let word of arr) {
+                // Sắp xếp các ký tự theo thứ tự bảng chữ cái
+                let sortedWord = word.split('').sort().join('');
 
-            while (array.length > 0) {
-                let current = array.shift(); // Lấy phần tử đầu tiên
-                let group = [current];
-
-                for (let i = array.length - 1; i >= 0; i--) {
-                    if (array[i].sort().join('') === current.slice().sort().join('')) {
-                        group.push(array[i]);
-                        array.splice(i, 1); // Xóa phần tử đã nhóm
-                    }
+                if (!groups[sortedWord]) {
+                    // Nếu chưa có nhóm này, tạo một mảng mới
+                    groups[sortedWord] = [];
                 }
-
-                grouped.push(group);
+                // Thêm từ vào nhóm tương ứng
+                groups[sortedWord].push(word);
             }
-
-            return grouped;
+            console.log(groups);
+            
+            // Trả về danh sách các nhóm
+            return Object.values(groups);
         }
         let array1 = ["eat", "tea", "tan", "ate", "nat", "bat"];
         let array2 = ["hello", "world", "dlrow", "ehllo"];
-        // alert(sortString(array1));
+
         console.log(sortString(array1));
+        console.log(sortString(array2));
 
     </script>
 </body>

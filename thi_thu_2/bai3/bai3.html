@@ -13,32 +13,35 @@
             let newArray = [];
             for (let i = 0; i < arr.length - 2; i++) {
                 if (arr[i] + arr[i + 1] == arr[i + 2]) {
-                    newArray[i] = new Array();
-                    newArray[i].push(arr[i], arr[i + 1]);
+                    // newArray[i] = new Array();
+                    // newArray[i].push(arr[i], arr[i + 1]);
+                    newArray.push([arr[i], arr[i + 1]]);
                 }
             }
 
-            for (let i = 0; i < newArray.length; i++) {
-                if (newArray[i] == null) {
-                    newArray.splice(i, 1);
-                    i--;
-                }
-            }
+            // for (let i = 0; i < newArray.length; i++) {
+            //     if (newArray[i] == null) {
+            //         newArray.splice(i, 1);
+            //         i--;
+            //     }
+            // }
 
-            for (let i = 0; i < newArray.length; i++) {
-                for (let k = 0; k < newArray.length - 1 - i; k++) {
-                    for (let j = 0; j < newArray[i].length - 1; j++) {
-                        if (newArray[k][0] + newArray[k][1] > newArray[k + 1][0] + newArray[k + 1][1]) {
-                            let temp = newArray[k];
-                            newArray[k] = newArray[k + 1];
-                            newArray[k + 1] = temp;
-                        }
-                    }
-                }
+            // for (let i = 0; i < newArray.length; i++) {
+            //     for (let k = 0; k < newArray.length - 1 - i; k++) {
+            //         for (let j = 0; j < newArray[i].length - 1; j++) {
+            //             if (newArray[k][0] + newArray[k][1] > newArray[k + 1][0] + newArray[k + 1][1]) {
+            //                 let temp = newArray[k];
+            //                 newArray[k] = newArray[k + 1];
+            //                 newArray[k + 1] = temp;
+            //             }
+            //         }
+            //     }
 
-            }
+            // }
 
-            return newArray;
+            return newArray.sort(function (a, b) {
+                return (a[0] + a[1]) - (b[0] + b[1]);
+            });
         }
 
         let n = 0;

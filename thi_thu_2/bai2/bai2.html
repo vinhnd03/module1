@@ -12,13 +12,14 @@
         function convertStr(string) {
             let array = string.trim().split(' ');
             for (let i = 0; i < array.length; i++) {
-                if (array[i] == ' ') {
+                if (array[i] == '') {
                     array.splice(i, 1);
                     i--;
                 }
             }
 
-            if(array.length == 1){
+            console.log(array);
+            if (array.length == 1) {
                 return 'Chuỗi chỉ có một ký tự, không cần viết tắt';
             }
 
@@ -47,7 +48,7 @@
             if (count == tempArr.length) {
                 loop = false;
             }
-        } while (loop)
+        } while (loop || str == '' || str.trim() == '')
 
         alert(convertStr(str));
     </script>

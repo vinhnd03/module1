@@ -11,6 +11,7 @@
     <script>
 
         function checkRiangle(x, y, z) {
+            // số âm
             if (x + y > z && x + z > y && z + y > x) {
                 if (x ** 2 + y ** 2 == z ** 2 || x ** 2 + z ** 2 == y ** 2 || z ** 2 + y ** 2 == x ** 2) {
                     return true;
@@ -35,7 +36,7 @@
         let n = 0;
         do {
             n = +prompt('Nhập n là bội số của 3 và n <= 15: ');
-        } while (n > 15 || n < 3 || n % 3 != 0 || isNaN(n))
+        } while (n > 15 || n < 3 || n % 3 != 0 || isNaN(n) || n % 1 != 0)
 
         let array = new Array(n);
         for (let i = 0; i < array.length; i++) {
@@ -43,7 +44,7 @@
                 array[i] = +prompt('Nhập phần tử thứ ' + i);
             } while (array[i] < 1 || isNaN(array[i]));
         }
-
+        alert(array);
         alert(checkArray(array));
     </script>
 </body>

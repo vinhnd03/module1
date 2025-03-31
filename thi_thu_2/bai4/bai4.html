@@ -65,7 +65,9 @@
             }
 
             tableStr += ` </table>`;
-
+            if (danhSach.length == 0) {
+                tableStr += `<h2>DANH SÁCH TRỐNG</h2>`;
+            }
             document.getElementById("bang").innerHTML = tableStr;
         }
 
