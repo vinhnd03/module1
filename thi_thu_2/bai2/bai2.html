@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        function convertStr(string) {
+            let array = string.trim().split(' ');
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] == ' ') {
+                    array.splice(i, 1);
+                    i--;
+                }
+            }
+
+            if(array.length == 1){
+                return 'Chuỗi chỉ có một ký tự, không cần viết tắt';
+            }
+
+            let returnArr = [];
+            for (let i = 0; i < array.length; i++) {
+                let temp = array[i].split('');
+                returnArr.push(temp[0].toUpperCase());
+            }
+
+            return returnArr.join('');
+        }
+
+
+        let str;
+        let loop = true;
+        let check = /[a-zA-Z]/
+        do {
+            let count = 0;
+            str = prompt('Nhập một chuỗi chữ: ');
+            let tempArr = str.split('');
+            for (let i = 0; i < tempArr.length; i++) {
+                if (check.test(tempArr[i]) || tempArr[i] == ' ') {
+                    count++;
+                }
+            }
+            if (count == tempArr.length) {
+                loop = false;
+            }
+        } while (loop)
+
+        alert(convertStr(str));
+    </script>
+</body>
+
+</html>

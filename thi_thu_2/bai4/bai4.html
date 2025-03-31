@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+    <div id="bang"></div>
+    <script>
+
+        class DanhBa {
+            constructor(soDienThoai, tenChu, diaChi) {
+                this.soDienThoai = soDienThoai;
+                this.tenChu = tenChu;
+                this.diaChi = diaChi;
+            }
+        }
+
+        let danhBa1 = new DanhBa('0123456789', "Nguyễn Văn A", "Hà Nội");
+        let danhBa2 = new DanhBa('0123456789', "Nguyễn Văn B", "Sài Gòn");
+        let danhBa3 = new DanhBa('0123456789', "Nguyễn Văn C", "Huế");
+        let danhBa4 = new DanhBa('0123456789', "Nguyễn Văn D", "Đà Nẵng");
+        let danhBa5 = new DanhBa('0123456789', "Nguyễn Văn E", "Quảng Bình");
+
+        let danhSach = [danhBa1, danhBa2, danhBa3, danhBa4, danhBa5];
+
+
+        display();
+
+        function xoa(index) {
+            let hoi = confirm('Bạn có muốn xóa danh bạ này? ');
+            if (hoi) {
+                danhSach.splice(index, 1);
+                display();
+            }
+        }
+
+
+        function display() {
+            let tableStr = "";
+            tableStr += `
+                <h1>Danh sách danh bạ</h1>     
+            `
+            tableStr += `<hr>`;
+            tableStr += '<table border="1" style="">';
+            tableStr += `<tr>`;
+            tableStr += `<th>STT</th>`
+            tableStr += `<th>Tên</th>`
+            tableStr += `<th>Số điện thoại</th>`
+            tableStr += `<th>Địa chỉ</th>`
+            tableStr += `<th>Chức năng</th>`
+            tableStr += `</tr>`;
+
+            for (let i = 0; i < danhSach.length; i++) {
+                tableStr += `<tr>`;
+                tableStr += `<td>${i + 1}</td>`;
+                tableStr += `<td>${danhSach[i].tenChu}</td>`;
+                tableStr += `<td>${danhSach[i].soDienThoai}</td>`;
+                tableStr += `<td>${danhSach[i].diaChi}</td>`;
+                tableStr += `<td><button type="button" onclick="xoa(${i})">Xóa</button></td>`;
+                tableStr += `</tr>`;
+            }
+
+            tableStr += ` </table>`;
+
+            document.getElementById("bang").innerHTML = tableStr;
+        }
+
+    </script>
+</body>
+
+</html>

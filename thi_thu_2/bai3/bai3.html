@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+
+<body>
+    <script>
+        function sortArray(arr) {
+            let newArray = [];
+            for (let i = 0; i < arr.length - 2; i++) {
+                if (arr[i] + arr[i + 1] == arr[i + 2]) {
+                    newArray[i] = new Array();
+                    newArray[i].push(arr[i], arr[i + 1]);
+                }
+            }
+
+            for (let i = 0; i < newArray.length; i++) {
+                if (newArray[i] == null) {
+                    newArray.splice(i, 1);
+                    i--;
+                }
+            }
+
+            for (let i = 0; i < newArray.length; i++) {
+                for (let k = 0; k < newArray.length - 1 - i; k++) {
+                    for (let j = 0; j < newArray[i].length - 1; j++) {
+                        if (newArray[k][0] + newArray[k][1] > newArray[k + 1][0] + newArray[k + 1][1]) {
+                            let temp = newArray[k];
+                            newArray[k] = newArray[k + 1];
+                            newArray[k + 1] = temp;
+                        }
+                    }
+                }
+
+            }
+
+            return newArray;
+        }
+
+        let n = 0;
+        // do {
+        //     n = +prompt('Nhập n (n >= 3): ');
+        // } while (n < 3 || isNaN(n))
+
+        // let array = new Array(n);
+        // for (let i = 0; i < array.length; i++) {
+        //     do {
+        //         array[i] = +prompt('Nhập phần tử thứ ' + i);
+        //     } while (array[i] < 1 || isNaN(array[i]));
+        // }
+
+
+        console.log(sortArray([1, 5, 6, 11, 9, 20, 8, 0, 8, 1]));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <script>
+
+        function checkRiangle(x, y, z) {
+            if (x + y > z && x + z > y && z + y > x) {
+                if (x ** 2 + y ** 2 == z ** 2 || x ** 2 + z ** 2 == y ** 2 || z ** 2 + y ** 2 == x ** 2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function checkArray(arr) {
+            let check = true;
+            for (let i = 0; i < arr.length; i += 3) {
+                if(!checkRiangle(arr[i], arr[i + 1], arr[i + 2])){
+                    return 'NO';
+                }
+            }
+            return 'OK';
+        }
+
+        let n = 0;
+        do {
+            n = +prompt('Nhập n là bội số của 3 và n <= 15: ');
+        } while (n > 15 || n < 3 || n % 3 != 0 || isNaN(n))
+
+        let array = new Array(n);
+        for (let i = 0; i < array.length; i++) {
+            do {
+                array[i] = +prompt('Nhập phần tử thứ ' + i);
+            } while (array[i] < 1 || isNaN(array[i]));
+        }
+
+        alert(checkArray(array));
+    </script>
+</body>
+
+</html>

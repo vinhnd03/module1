@@ -10,41 +10,30 @@
 <body>
     <script>
         function sortString(arr) {
-            let array = arr;
-            //tách chuỗi trong mảnh thành một mảng (mảng 2 chiều)
-            for (let i = 0; i < array.length; i++) {
-                array[i] = array[i].split('');
-            }
-            // alert(array);
+            let array = arr.map(str => str.split('')); // Chuyển mỗi chuỗi thành mảng ký tự
+            let grouped = [];
 
-            //[ [e, a, t] , [t, e, a] ];
+            while (array.length > 0) {
+                let current = array.shift(); // Lấy phần tử đầu tiên
+                let group = [current];
 
-            let tempArr1 = [];
-            for (let i = 0; i < array.length; i++) {
-                // let temp1 = array[i].sort();
-                // let temp2 = array[i + 1].sort();
-
-                if (!tempArr1.includes(array[i])) {
-                    tempArr1.push(array[i]);
-                } else {
-                    for (let j = 0; j < tempArr1.length; j++) {
-                        if (tempArr1[j][0].sort() == array[i].sort()) {
-                            tempArr1[j].push(array[i]);
-                        }
+                for (let i = array.length - 1; i >= 0; i--) {
+                    if (array[i].sort().join('') === current.slice().sort().join('')) {
+                        group.push(array[i]);
+                        array.splice(i, 1); // Xóa phần tử đã nhóm
                     }
                 }
 
-                // for (let i = 0; i < tempArr1.length; i++) {
-                //     tempArr1[i] = tempArr1[i].join('');
-                // }
-
+                grouped.push(group);
             }
 
-            return tempArr1[1];
+            return grouped;
         }
         let array1 = ["eat", "tea", "tan", "ate", "nat", "bat"];
         let array2 = ["hello", "world", "dlrow", "ehllo"];
-        alert(sortString(array1));
+        // alert(sortString(array1));
+        console.log(sortString(array1));
+
     </script>
 </body>
 

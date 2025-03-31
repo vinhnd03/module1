@@ -99,6 +99,7 @@
         var showTicket = {};
         let winTicket = new Lottery();
         winTicket.getRandomList();
+        console.log(winTicket);
         // winTicket = { number1: 1, number2: 2, number3: 3, number4: 4, number5: 5, number6: 6 }
 
 
@@ -139,7 +140,7 @@
             }
 
             if (resultStr == '') {
-                resultStr += 'Chúc bạn may nắm lần sau';
+                resultStr += 'Chúc bạn may mắn lần sau';
             }
             disableButton("buy", true);
             disableButton("show", true);
